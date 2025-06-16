@@ -2,6 +2,7 @@ package com.typewritermc.basic.entries.variables
 
 import com.mthaler.aparser.arithmetic.Expression
 import com.mthaler.aparser.arithmetic.tryEval
+import com.typewritermc.basic.entries.fact.RoundingMode
 import com.typewritermc.core.books.pages.Colors
 import com.typewritermc.core.exceptions.ContextDataNotFoundException
 import com.typewritermc.core.extension.annotations.*
@@ -60,6 +61,9 @@ class InteractionContextCalculatedVariable(
                 return context.cast(0.0)
             }
         }
+        if (context.klass == Int::class) {
+            return context.cast(RoundingMode.ROUND.apply(value))
+        }
         return context.cast(value)
     }
 }
@@ -70,6 +74,7 @@ private data class InteractionContextCalculatedVariableData(
     @Placeholder
     @Help("Use <1> to insert the value from the first variable in your mathematical expression.")
     val expression: String = "",
+    val roundingMode: RoundingMode = RoundingMode.ROUND,
 )
 
 private data class CalculatedKeyValue(

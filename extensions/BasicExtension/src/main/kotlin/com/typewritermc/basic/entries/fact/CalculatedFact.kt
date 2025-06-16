@@ -32,6 +32,7 @@ class CalculatedFact(
     override val comment: String = "",
     override val group: Ref<GroupEntry> = emptyRef(),
     @Placeholder val expression: String = "",
+    val roundingMode: RoundingMode = RoundingMode.ROUND,
 ) : ReadableFactEntry {
     private val placeholderRegex by lazy(LazyThreadSafetyMode.NONE) { Regex("[%]([^%]+)[%]") }
 
@@ -50,7 +51,7 @@ class CalculatedFact(
         val result = Expression(processedExpression).tryEval()
 
         return when (result) {
-            is Try.Success -> FactData(result.value.roundToInt())
+            is Try.Success -> FactData(roundingMode.apply(result.value))
             is Try.Failure -> {
                 logger.warning(
                     "Could not evaluate processed expression '$processedExpression' (original: '${this.expression}') for player ${player.name} for fact $id"
@@ -58,5 +59,17 @@ class CalculatedFact(
                 FactData(0)
             }
         }
+    }
+}
+
+enum class RoundingMode {
+    ROUND,
+    CEIL,
+    FLOOR;
+
+    fun apply(value: Double): Int = when (this) {
+        ROUND -> value.roundToInt()
+        CEIL -> kotlin.math.ceil(value).toInt()
+        FLOOR -> kotlin.math.floor(value).toInt()
     }
 }

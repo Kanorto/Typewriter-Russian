@@ -2,6 +2,7 @@ package com.typewritermc.basic.entries.variables
 
 import com.mthaler.aparser.arithmetic.Expression
 import com.mthaler.aparser.arithmetic.tryEval
+import com.typewritermc.basic.entries.fact.RoundingMode
 import com.typewritermc.core.books.pages.Colors
 import com.typewritermc.core.exceptions.ContextDataNotFoundException
 import com.typewritermc.core.extension.annotations.*
@@ -24,6 +25,8 @@ private class CalculatedVariable(
     override val id: String = "",
     override val name: String = "",
     val variables: List<CalculationVariable> = emptyList(),
+    @Help("Rounding mode is only applied if the variable is of type Int")
+    val roundingMode: RoundingMode = RoundingMode.ROUND,
 ) : VariableEntry {
     override fun <T : Any> get(context: VarContext<T>): T {
         val data = context.getData<CalculatedVariableData>()
@@ -44,6 +47,9 @@ private class CalculatedVariable(
                 logger.warning("Could not evaluate expression '$expression'${if (expression != replacedExpression) " -> '$replacedExpression'" else ""} for player ${context.player.name} for variable $id")
                 return context.cast(0.0)
             }
+        }
+        if (context.klass == Int::class) {
+            return context.cast(roundingMode.apply(value))
         }
         return context.cast(value)
     }
