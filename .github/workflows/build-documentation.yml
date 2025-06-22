@@ -14,35 +14,52 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@b4ffde65f46336ab88eb53be808477a3936bae11 # v4.1.1
+        uses: actions/checkout@v4
         with:
           fetch-depth: 0
+          submodules: false  # Skip submodules to avoid the git error
+          
       - name: Cache node modules
-        uses: actions/cache@v3
+        uses: actions/cache@v4
         with:
           path: ~/.npm
-          key: ${{ runner.os }}-node-${{ hashFiles('package-lock.json') }}
+          key: ${{ runner.os }}-node-${{ hashFiles('documentation/package-lock.json') }}
           restore-keys: |
             ${{ runner.os }}-node-
-      - name: Cache Docusaurus build folder
-        uses: actions/cache@v3
+            
+      - name: Cache documentation node modules
+        uses: actions/cache@v4
         with:
-          path: ./documentation/.docusaurus  # Fix the path
-          key: ${{ runner.os }}-docusaurus-${{ hashFiles('documentation/**/*.md') }}
+          path: documentation/node_modules
+          key: ${{ runner.os }}-docs-node-${{ hashFiles('documentation/package-lock.json') }}
+          restore-keys: |
+            ${{ runner.os }}-docs-node-
+            
+      - name: Cache Docusaurus build folder
+        uses: actions/cache@v4
+        with:
+          path: documentation/.docusaurus
+          key: ${{ runner.os }}-docusaurus-${{ hashFiles('documentation/**/*.md', 'documentation/**/*.mdx', 'documentation/docusaurus.config.js') }}
           restore-keys: |
             ${{ runner.os }}-docusaurus-
+            
       - name: Set up Node.js
-        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020
+        uses: actions/setup-node@v4
         with:
-          node-version: 24  
+          node-version: 24
+          cache: 'npm'
+          cache-dependency-path: documentation/package-lock.json
+          
       - name: Install dependencies
         run: npm ci
         working-directory: ./documentation
+        
       - name: Build website
         run: npm run build
         working-directory: ./documentation
         env:
           POSTHOG_API_KEY: ${{ secrets.POSTHOG_API_KEY }}
+          
       - name: Add CNAME
         run: echo "docs.typewritermc.com" > ./documentation/build/CNAME
 
