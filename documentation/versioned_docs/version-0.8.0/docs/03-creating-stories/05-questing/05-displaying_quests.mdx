@@ -8,6 +8,7 @@ import Player from "@site/src/components/Player";
 import StateFlow from '@site/src/components/StateFlow';
 import { SplitLayout, Section } from '@site/src/components/SplitLayout';
 import EntryDisplay from "@site/src/components/EntryDisplay";
+import Deopasity from "@site/src/components/Deopasity";
 
 # Displaying Quests
 :::info[Before starting]
@@ -41,6 +42,7 @@ Typewriter automatically tracks quests in these situations:
 
 This means in most cases, you won't need to manually manage quest tracking. Typewriter handles it intelligently!
 
+<Deopasity default={0.6} hover={1}>
 
 ### Manual Tracking
 Sometimes you want full control over which quest is tracked.
@@ -52,6 +54,8 @@ You can manually track a quest using the command:
 Or by using the **Track Quest Action** entry in your quest flow.
 
 <EntrySearch entryName="track_quest" />
+
+</Deopasity>
 
 ## Displaying Quest Information with Placeholders
 
