@@ -16,44 +16,31 @@ It's best to first read [Questing](./index.mdx) for the theory and [Talk Objecti
 
 In this tutorial, you will learn how to display quest information to players using Typewriter's quest tracking system and placeholders.
 
-<SplitLayout>
-<Section divider='left'>
-## What You'll Learn
-In this guide, we'll cover:
-- Understanding quest tracking and how it works
-- Setting up automatic and manual quest tracking
-- Using placeholders to show tracked quest information
-- Creating sidebar displays for quest objectives
-- Adding visual feedback for quest status changes
-</Section>
-<Section divider='right'>
-## Quest Display Overview
-Quest display in Typewriter uses a tracking system where only one quest is "tracked" at a time. This tracked quest becomes the focus for all display systems like scoreboards, sidebars, and custom UIs, keeping players focused on their current objective.
-</Section>
-</SplitLayout>
 
 ## Understanding Quest Tracking
 Typewriter uses **facts** to track quest progress behind the scenes. These facts determine the state of your quests, but to actually **display** quest information to players, you need to track a specific quest.
 
 :::tip[The Big Picture]
-Think of quest tracking as a spotlight - while many quests might be active, tracking puts one quest in the spotlight for the player to focus on.
+Think of quest tracking as a spotlight. While many quests might be active, tracking puts one quest in the spotlight for the player to focus on.
 :::
 
 ### How Tracking Works
-When a quest is tracked, it becomes the "active" quest that players see in their quest displays. This tracked quest can then be referenced by other systems like scoreboards, action bars, or custom UIs.
+When a quest is tracked, it becomes the "highlighted" quest that players see in their quest displays. This tracked quest becomes the focus for all display systems like scoreboards, sidebars, and custom UIs, keeping players focused on their current objective.
+
 
 :::warning[One Quest at a Time]
-While many quests can be active simultaneously, only **one quest can be tracked at a time**. This keeps the player focused and prevents UI clutter.
+While many quests can be **active** simultaneously, only **one quest can be tracked at a time**. This keeps the player focused and prevents UI clutter.
 :::
 
 ## Setting Up Quest Tracking
 
 ### Automatic Tracking
 Typewriter automatically tracks quests in these situations:
-- When a quest becomes active (based on its Active Criteria)
-- When an objective becomes active and has a higher priority than the currently tracked quest
+- When a quest becomes active
+- When an objective becomes active and has a higher priority than the currently tracked objectives
 
-This means in most cases, you won't need to manually manage quest tracking - Typewriter handles it intelligently!
+This means in most cases, you won't need to manually manage quest tracking. Typewriter handles it intelligently!
+
 
 ### Manual Tracking
 Sometimes you want full control over which quest is tracked.
@@ -76,6 +63,7 @@ Now that you understand tracking, let's look at how to actually display quest in
 |-------------|-------------|----------------|
 | `%typewriter_tracked_quest%` | The display name of the tracked quest | `Kill Zombie Quest` |
 | `%typewriter_tracked_objectives%` | A comma-separated list of the quest's active objectives | `Kill 2 Zombies, Return to Oliver` |
+| `%typewriter_tracked_objectives_locations%` | The locations of the tracked locatable objectives | `X: 100, Y: 64, Z: -200` |
 
 ## Sidebar Display
 
@@ -83,6 +71,9 @@ If Typewriter is managing your sidebar, you can use the [Objective Lines Entry](
 
 A possible setup for the sidebar could be:
 
+:::tip
+Notice how the objectives lines doesn't use the placeholder
+:::
 
 <EntryDisplay pages={[
     require("../../assets/questing/display/quest_display_manifest.json"),
