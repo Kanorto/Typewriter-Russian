@@ -27,8 +27,8 @@ jobs:
       - name: Cache Docusaurus build folder
         uses: actions/cache@v3
         with:
-          path: .docusaurus
-          key: ${{ runner.os }}-docusaurus-${{ hashFiles('**/*.md') }}
+          path: ./documentation/.docusaurus  # Fix the path
+          key: ${{ runner.os }}-docusaurus-${{ hashFiles('documentation/**/*.md') }}
           restore-keys: |
             ${{ runner.os }}-docusaurus-
       - name: Set up Node.js
