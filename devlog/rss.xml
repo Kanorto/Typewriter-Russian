@@ -4,11 +4,89 @@
         <title>Typewriter Blog</title>
         <link>https://docs.typewritermc.com/devlog</link>
         <description>Typewriter Blog</description>
-        <lastBuildDate>Sun, 15 Dec 2024 00:00:00 GMT</lastBuildDate>
+        <lastBuildDate>Wed, 11 Jun 2025 00:00:00 GMT</lastBuildDate>
         <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
         <generator>https://github.com/jpmonette/feed</generator>
         <language>en</language>
         <copyright>Copyright © 2025 Typewriter</copyright>
+        <item>
+            <title><![CDATA[Path Stream Displays]]></title>
+            <link>https://docs.typewritermc.com/devlog/path-stream-displays</link>
+            <guid>https://docs.typewritermc.com/devlog/path-stream-displays</guid>
+            <pubDate>Wed, 11 Jun 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Today's beta update is fantastic! A long-requested feature has finally been implemented. I spent way too much time creating a video to explain and showcase everything (though I think it looks nice).]]></description>
+            <content:encoded><![CDATA[<p>Today's beta update is fantastic! A long-requested feature has finally been implemented. I spent <em>way</em> too much time creating a video to explain and showcase everything (though I think it looks nice).</p>
+<!-- -->
+<p>There are also some much-needed bug fixes. You can read about all the changes <a href="https://typewriter.fibery.io/Milestone/Beta/Beta-161-88?sharing-key=29aec52b-35ac-45fa-8d2a-bb8b65104e3e" target="_blank" rel="noopener noreferrer">here</a>.</p>
+<p>Enjoy the update!</p>
+<iframe width="560" height="315" src="https://www.youtube.com/embed/X0av-Q1e53U" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin"></iframe>]]></content:encoded>
+            <category>devlog</category>
+            <category>beta</category>
+            <category>entity-extension</category>
+        </item>
+        <item>
+            <title><![CDATA[Interaction Context & Bounds]]></title>
+            <link>https://docs.typewritermc.com/devlog/0.8.0-release</link>
+            <guid>https://docs.typewritermc.com/devlog/0.8.0-release</guid>
+            <pubDate>Sun, 11 May 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Hey reader! After many months of development, the day has finally arrived: a new Typewriter release! Interactions like dialogue or cinematics have gained many new capabilities.]]></description>
+            <content:encoded><![CDATA[<p>Hey reader! After many months of development, the day has finally arrived: a new Typewriter release! Interactions like dialogue or cinematics have gained many new capabilities.</p>
+<!-- -->
+<h1>Interaction Bounds</h1>
+<p>Interaction bounds confine interactions to an action or space, such as canceling dialogue when the player walks away.
+Interaction bounds can be in 2 modes:&nbsp;<code>Interrupting</code>&nbsp;and&nbsp;<code>Blocking</code>.
+<code>Interruption Mode</code>&nbsp;means that if the player breaks the bounding condition, the interaction will be canceled.
+<code>Blocking Mode</code>&nbsp;means the player is not allowed to violate the bounding condition, ensuring players see the dialogue through.</p>
+<p>The mode is determined by the priority of the interaction versus the priority of the bound. If the interaction has a higher priority, it is in&nbsp;<code>Blocking Mode</code>; if it is the same or lower priority, it is in&nbsp;<code>Interruption Mode</code>.
+Entries inherit their priority from the page.</p>
+<p>Some examples of Interaction Bounds are:</p>
+<ul>
+<li><code>PlayerRadiusInteractionBound</code>: Player stays within a certain radius from when the bound started.</li>
+<li><code>LookAtNpcInteractionBound</code>: Similar to&nbsp;<code>PlayerRadiusInteractionBound</code>&nbsp;but forces the player to look at the entity.</li>
+<li><code>LockInteractionBound</code>: Completely locks the player's camera from moving and rotating.</li>
+<li><code>CommandInteractionBound</code>: Triggered when the player runs a command other than the&nbsp;<code>/tw</code>&nbsp;command.</li>
+</ul>
+<h1>Interaction Context</h1>
+<p>The second new concept is&nbsp;<code>Interaction Context</code>. This allows you to pass variables to subsequent entries in a sequence, allowing for more flexible interactions, such as asking the user for input and using that later, or spawning something on the block the player clicked on.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="custom-commands">Custom Commands<a href="https://docs.typewritermc.com/devlog/0.8.0-release#custom-commands" class="hash-link" aria-label="Direct link to Custom Commands" title="Direct link to Custom Commands">​</a></h3>
+<p>Though you could already have Typewriter create a custom command, you can now have arguments for this command and use the input of the arguments in subsequent entries.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="inputdialogue">InputDialogue<a href="https://docs.typewritermc.com/devlog/0.8.0-release#inputdialogue" class="hash-link" aria-label="Direct link to InputDialogue" title="Direct link to InputDialogue">​</a></h3>
+<p>NPCs can now ask more open-ended questions, like how many cookies 🍪 you want to have baked, or asking for a certain phrase like a password.</p>
+<h1>Other Features</h1>
+<p>This is not the only thing we added. Some noteworthy new features:</p>
+<ul>
+<li><strong>Speed Data</strong>: You can now specify how fast/slow an NPC should walk.</li>
+<li><strong>Replace With … Button</strong>: Now in the web panel, you can replace an existing entry with a different one. This is particularly useful!</li>
+<li><strong>Improved Navigation for long cinematic content modes</strong></li>
+<li><strong>Allow glowing effect data to have colors</strong></li>
+<li>And 70+ more new features!</li>
+</ul>
+<p>To see all the changes,&nbsp;<a href="https://typewriter.fibery.io/Milestone/Milestone/Interaction-Context-Bounds-(0.8)-5?sharing-key=1a6cdbd9-b4a2-4ece-b132-0338e6777f96" target="_blank" rel="noopener noreferrer">look at the full changelogs</a></p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="developer-changes">Developer Changes<a href="https://docs.typewritermc.com/devlog/0.8.0-release#developer-changes" class="hash-link" aria-label="Direct link to Developer Changes" title="Direct link to Developer Changes">​</a></h2>
+<p>This new version comes with many breaking changes for developers! A&nbsp;<a href="https://docs.typewritermc.com/develop/extensions/api-changes/0.8" target="_blank" rel="noopener noreferrer">full migration guide</a>&nbsp;is provided to help you migrate your extensions to the new version.</p>
+<blockquote>
+<p>If you find Typewriter valuable for your server, please consider&nbsp;<a href="https://github.com/sponsors/gabber235" target="_blank" rel="noopener noreferrer">Sponsoring the Project</a></p>
+</blockquote>
+<p>You can download the new update over on <a href="https://modrinth.com/plugin/typewriter/version/0.8.0" target="_blank" rel="noopener noreferrer">Modrinth</a></p>]]></content:encoded>
+            <category>release</category>
+        </item>
+        <item>
+            <title><![CDATA[New Designs]]></title>
+            <link>https://docs.typewritermc.com/devlog/new-designs</link>
+            <guid>https://docs.typewritermc.com/devlog/new-designs</guid>
+            <pubDate>Wed, 19 Mar 2025 00:00:00 GMT</pubDate>
+            <description><![CDATA[Hey Readers! As some of you might have noticed, some new design elements have been created by me and added to the server! The following elements have been added:]]></description>
+            <content:encoded><![CDATA[<p>Hey Readers! As some of you might have noticed, some new design elements have been created by me and added to the server! The following elements have been added:</p>
+<!-- -->
+<ul>
+<li>Animated Logo</li>
+<li>Static Banner with background</li>
+<li>Transparent Static Banner</li>
+<li>Animated Banner:</li>
+</ul>
+<div class="relative w-full h-full outline-none cursor-default"><div class="w-full flex items-center text-white"><div class="flex-grow"><div class="relative h-[5px] rounded-t-lg overflow-hidden pb-2"><input type="range" min="0" max="100" class="absolute top-0 left-0 w-full h-[5px] opacity-0 cursor-pointer" style="-webkit-appearance:none;-moz-appearance:none;appearance:none" value="0"><div class="h-full bg-primary transition-width duration-200 pb-2" style="width:0%"></div></div></div></div><div class="relative w-full h-full outline-none cursor-default" tabindex="0"><div style="width:100%;height:100%" playsinline=""></div><div class="opacity-0 hover:opacity-100 transition-opacity duration-300 w-full h-full flex items-center justify-center"><div class="absolute bottom-0 left-0 right-0 flex items-center justify-center h-full p-4"><span></span></div><div class="absolute bottom-2 right-2 p-2"><span></span></div></div></div></div>]]></content:encoded>
+            <category>Design</category>
+        </item>
         <item>
             <title><![CDATA[Dynamic Variables update]]></title>
             <link>https://docs.typewritermc.com/devlog/0.7.0-release</link>
