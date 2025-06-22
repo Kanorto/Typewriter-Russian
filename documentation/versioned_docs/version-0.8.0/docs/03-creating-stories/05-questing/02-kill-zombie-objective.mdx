@@ -178,14 +178,7 @@ Now when you click on Oliver nothing happens. It would be nice to add some dialo
 2. Now in the option 1 add a trigger for a spoken with fields:
    * **Text**: `Go kill 2 zombies.`
    * **Duration**: `1s`
-
-### Triggering the quest
-Now we need to trigger the quest when the player clicks on the first option.
-Right click on the `New Spoken` (or what you used) and select `Link with ...` select the `Triggers | 1` and search for `Add Track Quest`.
-
-<EntrySearch entryName="track_quest" />
-
-Inside the entry set the quest field to `Kill Zombie Quest` and add a modifier: `Zombie Quest Fact = 1`.
+3. Inside that spoken add a modifier: `Zombie Quest Fact = 1`
 
 ### On kill increase fact
 Now we need to increase the fact when the player kills a zombie. To do this we need to add a `On Player Kill Entity` event to the sequence.

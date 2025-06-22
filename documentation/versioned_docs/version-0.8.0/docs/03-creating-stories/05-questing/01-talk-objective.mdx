@@ -152,12 +152,7 @@ Now when you click on the first npc nothing happens. Let's add some dialogue to 
 2. Now in the option 1 add a trigger for a spoken with fields:
    * **Text**: `Go talk to that old man on the other side.`
    * **Duration**: `2s 500ms`
-#### Triggering the quest
-Right click on the `New Spoken` (or what you used) and select `Link with ...` select the `Triggers | 1` and search for `Add Track Quest`.
-
-<EntrySearch entryName="track_quest" />
-
-Inside the entry set the quest field to `TalkQuest` and add a modifier: `Talk Quest Fact = 1`.
+3. Inside that spoken add a modifier: `Talk Quest Fact = 1`
 
 ### Interaction with the Second NPC
 Now you have created the first npc interaction. Now we need to create the second npc interaction. This is where the player will complete the quest.
