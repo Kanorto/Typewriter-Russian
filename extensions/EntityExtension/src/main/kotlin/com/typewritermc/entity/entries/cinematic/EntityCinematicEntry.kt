@@ -122,7 +122,7 @@ class EntityCinematicAction(
         recordings = entry.segments
             .associate { it.artifact.id to it.artifact.get() }
             .filterValues { it != null }
-            .mapValues { assetManager.fetchAsset(it.value!!) }
+            .mapValues { assetManager.fetchStringAsset(it.value!!) }
             .filterValues { it != null }
             .mapValues { parseTape(gson, EntityFrame::class, it.value!!) }
     }
