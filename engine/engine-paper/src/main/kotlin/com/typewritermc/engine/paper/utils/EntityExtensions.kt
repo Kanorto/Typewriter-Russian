@@ -34,7 +34,6 @@ fun WrapperEntity.move(property: PositionProperty) {
             ),
         )
     } else {
-//        println("Teleporting $distanceSquared by $delta to $property")
         sendPacketsToViewers(
             WrapperPlayServerEntityPositionSync(
                 entityId, EntityPositionData(
