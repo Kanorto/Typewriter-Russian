@@ -185,7 +185,7 @@
   },
   "artifact_access": {
     "file": "src\\main\\kotlin\\com\\typewritermc\\example\\entries\\static\\ExampleArtifactEntry.kt",
-    "content": "suspend fun accessArtifactData(ref: Ref<out ArtifactEntry>) {\n    val assetManager = KoinJavaComponent.get<AssetManager>(AssetManager::class.java)\n    val entry = ref.get() ?: return\n    val content: String? = assetManager.fetchAsset(entry)\n    // Do something with the content\n}"
+    "content": "suspend fun accessArtifactData(ref: Ref<out ArtifactEntry>) {\n    val assetManager = KoinJavaComponent.get<AssetManager>(AssetManager::class.java)\n    val entry = ref.get() ?: return\n    val content: String? = assetManager.fetchStringAsset(entry)\n    // Do something with the content\n}"
   },
   "asset_entry": {
     "file": "src\\main\\kotlin\\com\\typewritermc\\example\\entries\\static\\ExampleAssetEntry.kt",
@@ -193,7 +193,7 @@
   },
   "asset_access": {
     "file": "src\\main\\kotlin\\com\\typewritermc\\example\\entries\\static\\ExampleAssetEntry.kt",
-    "content": "suspend fun accessAssetData(ref: Ref<out AssetEntry>) {\n    val assetManager = KoinJavaComponent.get<AssetManager>(AssetManager::class.java)\n    val entry = ref.get() ?: return\n    val content: String? = assetManager.fetchAsset(entry)\n    // Do something with the content\n}"
+    "content": "suspend fun accessAssetData(ref: Ref<out AssetEntry>) {\n    val assetManager = KoinJavaComponent.get<AssetManager>(AssetManager::class.java)\n    val entry = ref.get() ?: return\n    val content: String? = assetManager.fetchStringAsset(entry)\n    // Do something with the content\n}"
   },
   "sound_id_entry": {
     "file": "src\\main\\kotlin\\com\\typewritermc\\example\\entries\\static\\ExampleSoundIdEntry.kt",
