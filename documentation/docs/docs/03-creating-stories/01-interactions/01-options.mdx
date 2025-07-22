@@ -6,44 +6,44 @@ import Player from "@site/src/components/Player";
 import Image from "@site/src/components/Image";
 import EntrySearch from "@site/src/components/EntrySearch";
 
-# Adding Options
+# Добавление вариантов
 
-:::info[Before starting]
-It's best to first read [First Interaction](./index.mdx) before starting this tutorial.
+:::info[Перед началом]
+Перед началом рекомендуется прочитать руководство [First Interaction](./index.mdx).
 :::
 
-In this tutorial, you will learn how to create and use options in your interactions.
+В этом уроке вы узнаете, как создавать и использовать варианты в интеракциях.
 
-## Creating an Option
+## Создание варианта
 
-To create an option, follow these steps:
+Чтобы создать вариант, выполните следующие шаги:
 
-1. Right-click on your entry and select `+ Link with ...`.
-2. Search for `Add Option` and click on the + icon to add it to your sequence.
+1. Щёлкните правой кнопкой по записи и выберите `+ Link with ...`.
+2. Найдите `Add Option` и нажмите на значок +, чтобы добавить его в последовательность.
 
 <EntrySearch entryName='option' />
 
-## Configuring a Option
+## Настройка варианта
 
-Let's configure the option by doing the following steps:
+Настроим вариант, выполнив следующие действия:
 
-1. Enter the field `Text` your question that you want to ask the player, like `Am i a beautiful flower?`.
-2. Select the correct [speaker](./index.mdx#configuring-the-speaker) for the option.
+1. В поле `Text` введите вопрос, который хотите задать игроку, например `Am i a beautiful flower?`.
+2. Выберите подходящего [говорящего](./index.mdx#configuring-the-speaker) для варианта.
 
 <Image img={require("../../assets/interactions/configure-option.png")} alt="Configuring an option entry" />
 
-### Adding options
+### Добавление вариантов ответа
 
-1. Click on the + icon by the field `Options` and expand `Options #1`.
-2. Enter the question answer of option 1 in the Field `Text` like `Yes you are!`.
-3. Press the + icon in the field triggers inside `Options #1` and expand `Triggers #1`.
-4. Click on `Select a triggerable` and in the search menu, create the entry that you want to trigger after the player selected that Option. Like a spoken with `Yay thank you!`
-5. Repeat these steps to create more options like `No you are not.`.
+1. Нажмите на значок + рядом с полем `Options` и разверните `Options #1`.
+2. В поле `Text` для первого варианта введите ответ, например `Yes you are!`.
+3. Нажмите значок + в области triggers внутри `Options #1` и разверните `Triggers #1`.
+4. Нажмите `Select a triggerable` и в меню поиска создайте запись, которая выполнится после выбора варианта. Например, spoken с текстом `Yay thank you!`.
+5. Повторите эти шаги, чтобы создать другие варианты, например `No you are not.`.
 
 <Image img={require("../../assets/interactions/adding-options.png")} alt="Adding options to an option entry" />
 
-## Result
+## Результат
 
-After you have created the options, you can test your interaction by clicking the publish button and it should look like this:
+После создания вариантов опубликуйте страницу и проверьте интеракцию. Она должна выглядеть так:
 
 <Player url={require("../../assets/interactions/final-result-option.webm").default}/>
