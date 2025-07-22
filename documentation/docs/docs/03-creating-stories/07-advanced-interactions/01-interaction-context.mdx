@@ -7,56 +7,56 @@ import Image from "@site/src/components/Image";
 import ActionButton from "@site/src/components/ActionButtons";
 import EntrySearch from "@site/src/components/EntrySearch";
 
-# Interaction Context
-:::info[Before starting]
-For this tutorial we recommend reading the [Interactions](./index.mdx) guide as we will build upon this.
+# Контекст взаимодействия
+:::info[Прежде чем начать]
+Перед прохождением этого урока рекомендуем ознакомиться с руководством [Взаимодействия](./index.mdx), так как мы будем опираться на него.
 :::
 
-In this tutorial, you will learn about interaction contexts and how to use them. We will create an interaction where the player needs to specify the amount of flowers given.
+В этом руководстве мы разберёмся, что такое контекст взаимодействия и как им пользоваться. Мы создадим взаимодействие, в котором игрок должен указать количество передаваемых цветов.
 
-## What is an interaction context?
-Interaction contexts is a powerfull concept that allow you to pass variables to subsequent entries in a sequence. This means you can capture user input, store it, and use it later to drive dynamic interactions\
-whether it's using the input in future steps or triggering actions (like spawning effects on a clicked block). This flexibility makes your stories more adaptive and engaging.
+## Что такое контекст взаимодействия?
+Контекст взаимодействия — мощный инструмент, позволяющий передавать переменные в следующие записи последовательности. Вы можете получить ввод от игрока, сохранить его и использовать позже для создания динамических взаимодействий\
+— будь то использование значения на последующих шагах или вызов действий (например, спавн эффекта при клике по блоку). Такая гибкость делает ваши истории более адаптивными и увлекательными.
 
-:::tip[Multiple Types]
-For this tutorial we will use an `integer input dialogue` but there are more types like a `string input dialogue`.
+:::tip[Несколько типов]
+В этом уроке мы воспользуемся `диалогом ввода числа`, хотя существуют и другие варианты, например `диалог ввода строки`.
 :::
 
-## Creating an input dialogue
-In this tutorial, we will create an interaction where the player needs to specify the amount of flowers given. We will use an integer input dialogue to capture the amount of flowers given by the player.
-To add an integer input dialogue, go to the top right corner of the panel and click on the + icon. Search for `Add Integer Input Dialogue` and add it to your sequence\
-(For this guide we linked it to the spoken from [Interactions](./index.mdx)).
+## Создание диалога ввода
+Мы создадим взаимодействие, где игрок должен указать количество цветов. Для этого добавим диалог ввода числа, который сохранит указанное количество.
+Чтобы добавить диалог, нажмите значок + в правом верхнем углу панели. Найдите `Add Integer Input Dialogue` и добавьте его в последовательность\
+(в этом примере он связан со спокеном из раздела [Взаимодействия](./index.mdx)).
 <EntrySearch entryName="integer_input_dialogue" />
 
-## Configuring the integer input dialogue
-Now inside of the integer input dialogue set the text you want. For this guide we will use: `How many flowers would you like?`. 
-:::tip[Range]
-If you want you also can configure the range of an integer input dialogue
+## Настройка диалога ввода числа
+Внутри диалога задайте нужный текст. В нашем случае это будет: `Сколько цветов вы хотите?`.
+:::tip[Диапазон]
+При желании можно задать допустимый диапазон вводимого числа
 :::
 
-## Adding the give flowers
-Now we need to create an event that gets triggered when the player specifies the amount of flowers. Right-click on the `Integer Input Dialogue` entry and click on `+ link with ...` to open the search menu. Search for `Give Item` and add it to the page.
+## Добавляем выдачу цветов
+Теперь создадим событие, которое сработает после того, как игрок введёт количество. Щёлкните правой кнопкой по записи `Integer Input Dialogue` и выберите `+ link with ...`, затем найдите `Give Item` и добавьте его на страницу.
 
 <EntrySearch entryName="give_item" />
-:::warning[Give Item Entry]
-If you don't how the Give Item Entry works than you should first read [Giving Items](../01-interactions/02-items.mdx)
+:::warning[Запись Give Item]
+Если вы не знакомы с записью Give Item, сначала прочитайте раздел [Выдача предметов](../01-interactions/02-items.mdx)
 :::
 
-## Configuring the give flowers
-Now you can configure the give entry. For this guide we will use a `Red Tulip`.
-:::danger[Custom Item]
-For the item you need to use the custom item. As of right now the amount of a serialized item can't be a variable.
+## Настройка выдачи цветов
+Теперь настройте запись выдачи. В примере мы используем `красный тюльпан`.
+:::danger[Особый предмет]
+Необходимо выбрать пользовательский предмет. Пока что количество предметов в сериализованном виде нельзя задавать переменной.
 :::
-### Creating the interaction context variable
-Now inside the Give Item Entry at the item field create an extra component and select amount. Now at the amount field click on the <ActionButton button='dynamic-variable'/> and search for `Add Interaction Context Variable`.
+### Создаём переменную контекста взаимодействия
+Внутри записи Give Item в поле предмета добавьте дополнительный компонент и выберите количество. Затем в поле количества нажмите на <ActionButton button='dynamic-variable'/> и найдите `Add Interaction Context Variable`.
 
 <EntrySearch entryName="interaction_context_variable" />
 
-When you have done that you can than select the `Integer Input Dialogue` entry at the entry field.
-#### Video Tutorial
+После этого выберите в появившемся поле запись `Integer Input Dialogue`.
+#### Видеоурок
 <Player url={require("../../assets/interactions/configure-spoken-interaction-context.webm").default}/>
 
-## Result
-Now when the player specifies the amount of flowers, the player will receive the amount of flowers specified.
+## Результат
+Теперь, когда игрок указывает количество цветов, он получает именно столько, сколько ввёл.
 
 <Player url={require("../../assets/interactions/interaction-context-result.webm").default}/>
