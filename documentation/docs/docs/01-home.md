@@ -1,33 +1,33 @@
-# What is Typewriter?
+# Что такое Typewriter?
 
-Typewriter is a powerful Minecraft plugin that transforms how you create interactive experiences on your server. With Typewriter's intuitive web panel, you can build engaging content without writing a single line of code.
+Typewriter — это мощный плагин для Minecraft, который меняет подход к созданию интерактивного опыта на вашем сервере. С интуитивной веб‑панелью Typewriter вы можете создавать увлекательный контент без единой строки кода.
 
-## Key Features
+## Основные возможности
 
-- **Interactive Dialogues & Quests:** Create dialogues, branching storylines, and dynamic quests that respond to player choices
-- **Cinematic Sequences:** Build dynamic camera paths, animated NPC interactions, and immersive cutscenes that captivate your players
-- **Intelligent NPCs & Entities:** Custom activities, appearance changes and make player specific entities!
-- **Custom Commands:** Create server commands that trigger your custom content without any coding required
-- **Visual Configuration:** Manage all your content using a visual web panel specifically designed for ease of use
-- **Extensions System:** Extend Typewriter's functionality with modular components that integrate with custom plugins and create unique in-game experiences
+- **Интерактивные диалоги и квесты:** создавайте диалоги, разветвлённые сюжеты и динамические квесты, реагирующие на выбор игрока
+- **Кинематографические сцены:** стройте динамические камеры, анимированные взаимодействия NPC и захватывающие катсцены
+- **Интеллектуальные NPC и сущности:** настраивайте действия, внешний вид и создавайте уникальные сущности для игроков
+- **Пользовательские команды:** создавайте серверные команды, запускающие ваш контент без необходимости писать код
+- **Визуальная конфигурация:** управляйте контентом через удобную веб‑панель
+- **Система расширений:** расширяйте функциональность Typewriter модульными компонентами и интегрируйтесь с другими плагинами
 
-## Why Choose Typewriter?
+## Почему стоит выбрать Typewriter?
 
-- **No coding required** — Create complex interactions through the visual web panel
-- **Real-time collaboration** — Work with team members simultaneously on your server's content
-- **Flexible and extensible** — Adapt Typewriter to your server's unique needs with extensions
-- **Production-ready** — Designed for performance even on busy servers
+- **Без кода** — создавайте сложные взаимодействия через визуальную панель
+- **Совместная работа в реальном времени** — работайте над контентом сервера вместе с командой
+- **Гибкость и расширяемость** — адаптируйте Typewriter под нужды сервера с помощью расширений
+- **Готовность к продакшену** — оптимизирован для работы даже на загруженных серверах
 
-## Getting Started
+## Начало работы
 
-This wiki provides comprehensive guides to help you get the most out of Typewriter:
+Эта вики содержит подробные руководства, которые помогут получить максимум от Typewriter:
 
-1. Start with the [Installation Guide](./02-getting-started/01-installation.mdx) to set up Typewriter and the essential `BasicExtension`
-2. Learn how to navigate the [Web Panel Layout](./02-getting-started/02-layout.mdx) to understand the interface
-3. Create your [First Interaction](./03-creating-stories/01-interactions/index.mdx) to see Typewriter in action
+1. Начните с [руководства по установке](./02-getting-started/01-installation.mdx), чтобы настроить Typewriter и необходимый `BasicExtension`
+2. Изучите [веб‑панель](./02-getting-started/02-layout.mdx), чтобы разобраться в интерфейсе
+3. Создайте [первое взаимодействие](./03-creating-stories/01-interactions/index.mdx), чтобы увидеть Typewriter в деле
 
-:::warning[Beta Release]
-Typewriter is currently in beta. While stable for most uses, you may encounter occasional bugs. If you find any issues, please report them in our [Discord community](https://discord.gg/HtbKyuDDBw) where you can also get support and share ideas!
+:::warning[Бета-версия]
+Typewriter сейчас находится в бета‑версии. Хотя плагин стабилен для большинства случаев, иногда могут возникать ошибки. Если вы нашли проблему, сообщите о ней в нашем [Discord-сообществе](https://discord.gg/HtbKyuDDBw), где также можно получить поддержку и поделиться идеями!
 :::
 
-Ready to enhance your server with interactive experiences? Let's get started with [installation](./02-getting-started/01-installation.mdx)!
+Готовы улучшить сервер интерактивным контентом? Приступайте к [установке](./02-getting-started/01-installation.mdx)!
