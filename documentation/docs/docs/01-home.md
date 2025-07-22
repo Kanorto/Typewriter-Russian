@@ -1,33 +1,35 @@
-# What is Typewriter?
+# Что такое Typewriter?
 
-Typewriter is a powerful Minecraft plugin that transforms how you create interactive experiences on your server. With Typewriter's intuitive web panel, you can build engaging content without writing a single line of code.
+Typewriter — это мощный плагин для Minecraft, который меняет подход к созданию интерактивов на сервере.
+Благодаря удобной веб‑панели вы сможете создавать увлекательный контент без единой строчки кода.
 
-## Key Features
+## Ключевые возможности
 
-- **Interactive Dialogues & Quests:** Create dialogues, branching storylines, and dynamic quests that respond to player choices
-- **Cinematic Sequences:** Build dynamic camera paths, animated NPC interactions, and immersive cutscenes that captivate your players
-- **Intelligent NPCs & Entities:** Custom activities, appearance changes and make player specific entities!
-- **Custom Commands:** Create server commands that trigger your custom content without any coding required
-- **Visual Configuration:** Manage all your content using a visual web panel specifically designed for ease of use
-- **Extensions System:** Extend Typewriter's functionality with modular components that integrate with custom plugins and create unique in-game experiences
+- **Диалоги и задания:** Создавайте диалоги, ветвящиеся сюжетные линии и задания, реагирующие на выбор игрока
+- **Синематические сцены:** Создавайте траектории камеры, анимированные взаимодействия NPC и яркие кат‑сцены
+- **Интеллектуальные NPC и сущности:** Настраивайте действия, внешний вид и создавайте сущности для конкретных игроков
+- **Пользовательские команды:** Создавайте серверные команды, запускающие ваш контент без необходимости писать код
+- **Визуальная настройка:** Управляйте всем контентом через удобную веб‑панель
+- **Система расширений:** Добавляйте модули, интегрируйте их с плагинами и создавайте уникальный игровой опыт
 
-## Why Choose Typewriter?
+## Почему стоит выбрать Typewriter?
 
-- **No coding required** — Create complex interactions through the visual web panel
-- **Real-time collaboration** — Work with team members simultaneously on your server's content
-- **Flexible and extensible** — Adapt Typewriter to your server's unique needs with extensions
-- **Production-ready** — Designed for performance even on busy servers
+- **Не требуется код** — создавайте сложные сценарии через визуальную панель
+- **Совместная работа** — редактируйте контент сервера одновременно с командой
+- **Гибкость и расширяемость** — адаптируйте Typewriter под нужды сервера с помощью расширений
+- **Готовность к продакшену** — оптимизирован для работы даже на загруженных серверах
 
-## Getting Started
+## С чего начать
 
-This wiki provides comprehensive guides to help you get the most out of Typewriter:
+Вики содержит подробные руководства, которые помогут раскрыть потенциал Typewriter:
 
-1. Start with the [Installation Guide](./02-getting-started/01-installation.mdx) to set up Typewriter and the essential `BasicExtension`
-2. Learn how to navigate the [Web Panel Layout](./02-getting-started/02-layout.mdx) to understand the interface
-3. Create your [First Interaction](./03-creating-stories/01-interactions/index.mdx) to see Typewriter in action
+1. Начните с [установки](./02-getting-started/01-installation.mdx) и подключите расширение `BasicExtension`
+2. Изучите [структуру веб‑панели](./02-getting-started/02-layout.mdx), чтобы разобраться в интерфейсе
+3. Создайте [первую интеракцию](./03-creating-stories/01-interactions/index.mdx), чтобы увидеть Typewriter в действии
 
-:::warning[Beta Release]
-Typewriter is currently in beta. While stable for most uses, you may encounter occasional bugs. If you find any issues, please report them in our [Discord community](https://discord.gg/HtbKyuDDBw) where you can also get support and share ideas!
+:::warning[Бета-версия]
+Typewriter пока в бета-стадии. Хотя он стабилен для большинства задач, возможны редкие ошибки.
+Сообщайте о них в [наш Discord](https://discord.gg/HtbKyuDDBw) — там можно получить поддержку и поделиться идеями!
 :::
 
-Ready to enhance your server with interactive experiences? Let's get started with [installation](./02-getting-started/01-installation.mdx)!
+Готовы улучшить сервер интерактивными историями? Начнём с [установки](./02-getting-started/01-installation.mdx)!
