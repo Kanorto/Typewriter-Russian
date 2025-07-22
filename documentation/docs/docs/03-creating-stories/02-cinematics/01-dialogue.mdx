@@ -6,30 +6,30 @@ import Player from "@site/src/components/Player";
 import Image from "@site/src/components/Image";
 import EntrySearch from "@site/src/components/EntrySearch";
 
-# Adding dialogues
+# Добавление диалогов
 
 :::info[Before starting]
-It's best to first read [Cinematics](./index.mdx) before starting this tutorial.
+Перед началом этого руководства лучше прочитать раздел [Cinematics](./index.mdx).
 :::
-In this tutorial, you will learn how to add dialogues to your interactions.
+В этом уроке вы узнаете, как добавлять диалоги в свои интеракции.
 
-## Adding a dialogue
-In cinematic their are a variety of dialogues available like: `spoken`, `actionbar`, `title`, `subtitle`. For this tutorial we will use actionbar but all others have similar features.
+## Добавление диалога
+В кинематике доступно несколько типов диалогов: `spoken`, `actionbar`, `title`, `subtitle`. В этом руководстве мы используем `actionbar`, остальные работают аналогично.
 
-First click on the + icon in the top right corner of the panel and search for `Add Actionbar Dialogue Cinematic`. Add it to your page by clicking on the + icon.
+Сначала нажмите значок + в правом верхнем углу панели и найдите `Add Actionbar Dialogue Cinematic`. Добавьте его на страницу, кликнув по значку +.
 <EntrySearch entryName='actionbar_dialogue_cinematic'/>
 
-### Configuring the dialogue
-Now we need to configure the dialogue. 
+### Настройка диалога
+Теперь необходимо настроить диалог.
 
-First we need to add a [speaker](../01-interactions/index.mdx#configuring-the-speaker) to the dialogue. After that we need to add a segment this can be done by going to the operations and clicking on `Add Segment`.
+Сначала добавьте [спикера](../01-interactions/index.mdx#configuring-the-speaker) к диалогу. Затем в разделе операций нажмите `Add Segment`, чтобы создать сегмент.
 
-### Configuring the dialogue segment
-Now inside the segment you can go to the Text field and adding a text like `<white>This is a cool actionbar text!</white>`.
+### Настройка сегмента диалога
+Внутри сегмента в поле Text можно указать текст, например `<white>This is a cool actionbar text!</white>`.
 
 <Image img={require("../../assets/cinematics/adding-dialogue-segment.png")} alt="Adding a dialogue segment" width={400} />
 
-## Result
-Now you have successfully added the dialogue you can view it in your cinematic.
+## Результат
+Теперь диалог успешно добавлен, и вы можете увидеть его в своей кинематике.
 
 <Player url={require("../../assets/cinematics/adding-dialogue-cinematic.webm").default} />

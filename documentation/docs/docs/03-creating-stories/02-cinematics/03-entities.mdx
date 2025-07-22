@@ -7,48 +7,48 @@ import Image from "@site/src/components/Image";
 import EntrySearch from "@site/src/components/EntrySearch";
 import ActionButton from "@site/src/components/ActionButtons";
 
-# Adding entities
+# Добавление сущностей
 
 :::info[Before starting]
-It's best to first read [Cinematics](./index.mdx) before starting this tutorial.
+Перед началом этого руководства лучше прочитать раздел [Cinematics](./index.mdx).
 :::
 :::danger[Entity Extension]
-You must have installed the Entity Extension before starting this tutorial.
+Перед началом убедитесь, что установили расширение Entity Extension.
 :::
-In this tutorial, you will learn how to add entities to your interactions.
+В этом уроке вы узнаете, как добавлять сущностей в свои интеракции.
 
-## Adding an entity
-Firstly click on the + icon in the top right corner of the panel and search for `Add Entity Cinematic`. Add it to your page by clicking on the + icon.
+## Добавление сущности
+Нажмите значок + в правом верхнем углу панели и найдите `Add Entity Cinematic`. Добавьте его на страницу, кликнув по значку +.
 
 <EntrySearch entryName='entity_cinematic'/>
-### Selecting the definition
-Now in the inspector, click on `Select a entity_definition` and select the type of entity you want to have as an NPC, but for this tutorial, we will use the `Add Npc Definition`. Now you will need to select a manifest page or create one by clicking on `Add manifest`.
+### Выбор определения
+В инспекторе нажмите `Select a entity_definition` и выберите тип сущности, которую хотите использовать в качестве NPC. В этом руководстве выберем `Add Npc Definition`. Далее выберите страницу manifest или создайте её, нажав `Add manifest`.
 
 <Player url={require("../../assets/cinematics/select-entity-definition.webm").default} />
 
-Then inside that NPC Definition you can follow the [entity-extension](../04-entity-extension/index.mdx) Tutorial to create a Beautiful NPC.
+Далее в этом NPC Definition следуйте руководству [entity-extension](../04-entity-extension/index.mdx), чтобы создать красивого NPC.
 
-### Adding segments
-Now we need to add a segment to our track. You can do this by clicking in the inspector at Operations on `Add Segment`. This will add a segment to your track.
+### Добавление сегментов
+Нужно добавить сегмент в дорожку. Это делается через Operations в инспекторе, выберите `Add Segment`.
 
-### Configuring the segment
-In the segment, we now need to add an artifact. You can do this by clicking on `Select a entity_cinematic_artifact` and selecting your artifact, or create one by clicking on `Add Entity Cinematic Artifact`. Then select or create your static page.
+### Настройка сегмента
+В сегменте необходимо добавить артефакт. Нажмите `Select a entity_cinematic_artifact` и выберите его или создайте новый через `Add Entity Cinematic Artifact`. Затем выберите или создайте статическую страницу.
 
-### Requesting the content mode.
-Now, back on the cinematic page, click on the <ActionButton button='capture'/> icon in the inspector just above the artifact. This will open the content mode in Minecraft. If you like, you can read what the items do in your inventory just by hovering over them with your mouse, but we will just use the book for now.
-By clicking on the book, Typewriter will start recording your movements and items that you were holding before you requested the content mode.
+### Запрос режима контента
+Вернитесь на страницу кинематики и нажмите на значок <ActionButton button='capture'/> в инспекторе над артефактом. Откроется режим контента в Minecraft. Наводя курсор на предметы в инвентаре, можно узнать их назначение, но мы воспользуемся только книгой.
+Нажав на книгу, Typewriter начнёт записывать ваши движения и предметы, которые были в руках при запуске режима.
 
-#### Recording the NPC
+#### Запись NPC
 :::warning[Items in inventory]
-The items you were holding before you requested the content mode will be the items that the NPC will be holding.
+Предметы, которые были в ваших руках до включения режима контента, окажутся в руках NPC.
 :::
 <Player url={require("../../assets/cinematics/recording.webm").default}/>
 
-#### Using the playback items
+#### Использование предметов воспроизведения
 
 <Player url={require("../../assets/cinematics/playback.webm").default}/>
 
-## result
-Now that you have successfully added the entity, you can view it in your cinematic.
+## Результат
+Теперь, когда сущность успешно добавлена, её можно увидеть в кинематике.
 
 <Player url={require("../../assets/cinematics/cinematic-npc-result.webm").default}/>
