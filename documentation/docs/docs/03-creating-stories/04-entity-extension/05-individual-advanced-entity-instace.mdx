@@ -2,39 +2,39 @@
 difficulty: Normal
 ---
 
-# The Individual Advanced Entity Instance
+# Индивидуальный продвинутый экземпляр сущности
 
-## What is an `Individual Advanced Entity Instance`?
+## Что такое `Individual Advanced Entity Instance`?
 
-An `Individual Advanced Entity Instance` is a type of Entity Instance that allows **customized activity calculations for each player**.
+`Individual Advanced Entity Instance` — это тип Entity Instance, который позволяет **расчитывать активности отдельно для каждого игрока**.
 
-Unlike a traditional `NPC Instance` (or more broadly a `Shared Entity Instance`), where a single activity is shared among all players, an individual instance generates **a separate activity for each player**.
+В отличие от обычного `NPC Instance` (или более общего `Shared Entity Instance`), где одна активность используется всеми игроками, индивидуальный экземпляр создаёт **отдельную активность на каждого игрока**.
 
-## Key Differences from an `NPC Instance`
+## Основные отличия от `NPC Instance`
 
-| Characteristic       | `NPC Instance`             | `Individual Advanced Entity Instance` |
+| Характеристика       | `NPC Instance`             | `Individual Advanced Entity Instance` |
 | -------------------- | -------------------------- | ------------------------------------- |
-| Activity Calculation | A single shared activity   | An activity calculated per player     |
-| Entity Position      | Same for all players       | Customized based on the player        |
-| Recommended Use Case | Generic or global behavior | Individualized behavior               |
+| Расчёт активности    | Одна общая активность      | Активность для каждого игрока         |
+| Положение сущности   | Одинаковое для всех        | Зависит от конкретного игрока         |
+| Когда использовать   | Общие сценарии             | Индивидуальное поведение              |
 
-## Example: Patrolling NPC
+## Пример: патрулирующий NPC
 
-Consider an NPC with a **patrol** activity using a `Patrol Activity`.
+Рассмотрим NPC с активностью **патруль**, настроенной через `Patrol Activity`.
 
 * **`NPC Instance`:**
-  If 200 players can see this NPC, **only one** patrol activity is calculated. All players see the NPC moving along the **same path**.
+  Если NPC видят 200 игроков, вычисляется **лишь одна** активность патруля. Все игроки наблюдают NPC, идущего по **одному и тому же пути**.
 
 * **`Individual Advanced Entity Instance`:**
-  Here, **200 patrol activities** are calculated — **one per player**. The path taken by the NPC can therefore **differ from player to player**, but this comes with a **very high performance cost**.
+  Здесь рассчитываются **200 активностей** патруля — **по одной на каждого игрока**. Путь NPC может **отличаться для разных игроков**, что требует **значительных ресурсов**.
 
 ---
 
-## When should you use an `Individual Advanced Entity Instance`?
+## Когда использовать `Individual Advanced Entity Instance`
 
-Use this type of instance **only if you need a behavior or position that differs per player**, such as having the NPC follow the player or show them a path without being seen moving by other players.
+Используйте такой экземпляр **только если нужно поведение или позиция, отличающиеся для каждого игрока**, например, чтобы NPC следовал за игроком или показывал ему путь, оставаясь невидимым для остальных.
 
-:::warning[Recommendation]
-Do not use this type of instance for standard NPCs or those visible to many players. **Always prefer using a default NPC Instance**, unless truly individualized behavior is necessary.
+:::warning[Рекомендация]
+Не применяйте этот тип экземпляра для обычных NPC или тех, кого видит много игроков. **По возможности используйте стандартный NPC Instance**, если только не требуется индивидуальное поведение.
 :::
 
