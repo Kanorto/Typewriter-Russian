@@ -4,29 +4,29 @@ difficulty: Normal
 
 import Image from "@site/src/components/Image";
 
-# Troubleshooting Guide
+# Руководство по устранению неполадок
 
-Welcome to the Typewriter Plugin Troubleshooting Guide. This document aims to assist users in resolving common issues encountered while using the Typewriter plugin for Paper Spigot. Before reaching out for assistance on Discord or GitHub, we encourage you to review this comprehensive list of frequently encountered issues and their solutions. This proactive approach can help you solve your problem more quickly and efficiently.
+Добро пожаловать в руководство по устранению неполадок плагина Typewriter. Здесь собраны решения распространённых проблем при использовании плагина для Paper Spigot. Прежде чем обращаться за помощью в Discord или на GitHub, ознакомьтесь с этим списком типичных ошибок и способов их устранения. Такой подход поможет быстрее решить вашу проблему.
 
-## Panel Not Loading
+## Панель не загружается
 
-If you encounter issues with the panel not loading, please follow these steps:
+Если панель не загружается, выполните следующие действия:
 
-1. Confirm that your server is running and accessible.
-2. Check if there are any network connectivity issues.
-3. Ensure your firewall settings are not blocking access.
+1. Убедитесь, что сервер запущен и доступен.
+2. Проверьте наличие сетевых проблем.
+3. Убедитесь, что настройки брандмауэра не блокируют доступ.
 
-For more detailed troubleshooting steps, refer to: [Panel not loading](troubleshooting/ports).
+Подробнее об устранении этой проблемы см. раздел [Панель не загружается](troubleshooting/ports).
 
-## No Entries Showing
+## Нет отображаемых записей
 
 <Image img={require("../assets/troubleshooting/no-entries.png")} alt="No Entries" />
 
-This issue typically occurs when no extensions are installed. To resolve this, ensure that extensions are correctly installed by following the steps outlined in the **[Basic Extension Installation Tutorial](../02-getting-started/01-installation.mdx#basic-extension)**.
+Эта проблема обычно возникает, если не установлено ни одного расширения. Убедитесь, что расширения установлены корректно, выполнив шаги из **[Основного руководства по установке расширений](../02-getting-started/01-installation.mdx#basic-extension)**.
 
-## Error: "plugin.yml not found" When Installing an Extension
+## Ошибка: «plugin.yml не найден» при установке расширения
 
-If you encounter an error message similar to the following when installing an extension:
+Если при установке расширения вы видите ошибку, похожую на эту:
 
 ```log
 [08:49:35 ERROR]: [DirectoryProviderSource] Error loading plugin: Directory 'plugins/BasicExtension.jar' failed to load!
@@ -35,15 +35,15 @@ java.lang.RuntimeException: Directory 'plugins/BasicExtension.jar' failed to loa
 Caused by: java.lang.IllegalArgumentException: Directory 'plugins/BasicExtension.jar' does not contain a paper-plugin.yml or plugin.yml! Could not determine plugin type, cannot load a plugin from it!
 ```
 
-This typically indicates that the extension is not placed in the correct folder. For instructions on proper placement, see [Correct Extension Placement](./extensions.mdx#correct-extension-placement).
+Обычно это значит, что расширение размещено не в той папке. Смотрите [Правильное размещение расширений](./extensions.mdx#correct-extension-placement) для инструкций.
 
-## Placeholders Not Parsing Correctly
+## Плейсхолдеры не распознаются
 
-If placeholders from PlaceholderAPI, such as `%player_name%`, aren't being parsed correctly in Typewriter, follow these troubleshooting steps:
+Если плейсхолдеры из PlaceholderAPI, например `%player_name%`, не распознаются в Typewriter, выполните следующие шаги:
 
-1. Identify the required PlaceholderAPI placeholder extension. A list of extensions can be found [here](https://github.com/PlaceholderAPI/PlaceholderAPI/wiki/Placeholders).
-2. Install the necessary extension using `/papi ecloud download [extension_name]`. For `%player_name%`, use `/papi ecloud download player`.
-3. Check if the placeholder is parsed correctly in normal usage by running `/papi parse me <placeholder>`. For `%player_name%`, use `/papi parse me %player_name%`.
-4. If the placeholder works in normal usage but still not in Typewriter, try restarting your server.
+1. Найдите нужное дополнение PlaceholderAPI. Список доступных дополнений см. [здесь](https://github.com/PlaceholderAPI/PlaceholderAPI/wiki/Placeholders).
+2. Установите его командой `/papi ecloud download [extension_name]`. Для `%player_name%` выполните `/papi ecloud download player`.
+3. Проверьте работу плейсхолдера командой `/papi parse me <placeholder>`. Для `%player_name%` используйте `/papi parse me %player_name%`.
+4. Если плейсхолдер работает в обычном режиме, но не в Typewriter, попробуйте перезапустить сервер.
 
-If these steps do not resolve the issue, please contact us for further support by creating a ticket on our [Discord](https://discord.gg/HtbKyuDDBw).
+Если проблема не устраняется, создайте тикет в нашем [Discord](https://discord.gg/HtbKyuDDBw) для получения дополнительной помощи.
