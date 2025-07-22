@@ -8,120 +8,120 @@ import EntrySearch from "@site/src/components/EntrySearch";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-# Interaction Bounds
+# Границы взаимодействия
 :::info[Before starting]
-This guide assumes that you have already installed the [Basic Extension](../../../02-getting-started/01-installation.mdx#basic-extension).
+В этом руководстве предполагается, что у вас уже установлено [Basic Extension](../../../02-getting-started/01-installation.mdx#basic-extension).
 :::
 :::danger[Before Starting]
-This guide is made for advanced users. It is recommended to have a good understanding of how [Interactions](../../01-interactions/index.mdx) work and function!
+Это руководство предназначено для опытных пользователей. Рекомендуется хорошо понимать, как работают [Взаимодействия](../../01-interactions/index.mdx)!
 :::
 
-Before starting this guide there is some theory you need to know about interaction bounds before you should use them in your stories.
+Перед началом следует разобраться в теории границ взаимодействия, чтобы правильно применять их в своих историях.
 
-## What are interaction bounds?
+## Что такое границы взаимодействия?
 
-Interaction bounds are conditions that confine an interaction to a specific action or space. They provide control over when and how interactions can occur or be interrupted. A common example is cancelling a dialogue when the player walks away from an NPC.
+Границы взаимодействия — это условия, ограничивающие взаимодействие определённым действием или пространством. Они позволяют контролировать, когда и как может происходить или прерываться взаимодействие. Распространённый пример — отмена диалога, если игрок отходит от NPC.
 
-### Two Modes of Bounds
+### Два режима границ
 
-Interaction bounds operate in two distinct modes:
+Границы взаимодействия работают в двух режимах:
 
-#### Interruption Mode
-When in Interruption Mode, if the player breaks the bounding condition (such as walking out of a defined area), the interaction will be immediately cancelled. This is useful for casual conversations where you want to allow players the freedom to walk away.
+#### Режим прерывания
+В режиме прерывания, если игрок нарушает условие (например, выходит за пределы зоны), взаимодействие сразу отменяется. Полезно для неформальных диалогов, когда игроку можно свободно уйти.
 
-#### Blocking Mode
-In Blocking Mode, the player is prevented from violating the bounding condition altogether. The player cannot, for example, walk away from an important dialogue. This ensures players experience critical story moments fully before proceeding.
-
-
-| Mode | Behaviour | Use Case |
-|------|----------|----------|
-| Interruption | Interaction cancels when bound is broken | Optional dialogues, ambient interactions |
-| Blocking | Player cannot break the bound | Critical story moments, important instructions |
+#### Блокирующий режим
+В блокирующем режиме игрок не может нарушить условие — например, уйти от важного диалога. Это гарантирует, что он полностью воспримет ключевой момент сюжета.
 
 
-### How Modes Are Determined
+| Режим | Поведение | Сценарий |
+|------|-----------|----------|
+| Прерывание | Взаимодействие отменяется при нарушении границы | Необязательные диалоги, фоновые взаимодействия |
+| Блокировка | Игрок не может нарушить границу | Важные сюжетные моменты, важные инструкции |
 
-The mode is determined by comparing the **priority** of the interaction with the **priority** of the bound:
 
-- If the interaction has a **higher priority** than the bound → **Blocking Mode**
-- If the interaction has the **same or lower priority** than the bound → **Interruption Mode**
+### Как определяется режим
+
+Режим определяется сравнением **приоритета** взаимодействия и **приоритета** границы:
+
+- Если взаимодействие имеет **более высокий приоритет**, чем граница → **Блокирующий режим**
+- Если приоритет взаимодействия **равен или ниже**, чем у границы → **Режим прерывания**
 
 :::tip
-Entries inherit their priority from the page they belong to. You can set page priorities in the page properties panel.
+Записи наследуют приоритет от страницы, к которой принадлежат. Задавать приоритеты страниц можно в панели свойств страницы.
 :::
 
-## How to use interaction bounds
-Now that we have covered the theory, let's see how to use interaction bounds in your stories.\
-For this guide, we created 3 different examples to show you how to use interaction bounds in different situations:
+## Как использовать границы взаимодействия
+Теперь, когда теория изучена, посмотрим, как применять границы взаимодействия в своих историях.\
+В рамках этого руководства мы подготовили три разных примера, демонстрирующих использование границ в разных ситуациях:
 
 <Tabs defaultValue="interruption" groupId="boundType" queryString>
     <TabItem value="interruption" label="Interruption Mode">
     :::info[Guide]
-    In this guide, we will show an example of how to make an interrupting interaction bound when the player walks away from a flower.
+    Здесь мы покажем, как сделать прерываемую границу взаимодействия, когда игрок отходит от цветка.
     :::
     :::warning[Initial Setup]
-    This guide will build upon the [Interactions Guide](../../01-interactions/index.mdx) and requires you to have at least an
-    `On Interact With Block` entry in your editor.
+    Мы будем основываться на [руководстве по взаимодействиям](../../01-interactions/index.mdx), поэтому в редакторе должен быть хотя бы элемент
+    `On Interact With Block`.
     :::
 
-    #### Adding the Interaction Bound
-    To add an interaction bound, right-click on the `On Interact With Block` entry and select `Link with ...`, search for `Player Radius Interaction Bound` and add it to your sequence.
+    #### Добавление границы взаимодействия
+    Чтобы добавить границу, нажмите правой кнопкой на элементе `On Interact With Block` и выберите `Link with ...`, затем найдите `Player Radius Interaction Bound` и добавьте его в последовательность.
     <EntrySearch entryName='player_radius_interaction_bound' />
 
-    #### Configuring the Interaction Bound
-    Now that we have added the interaction bound, we need to configure it.\
-    Select the `Player Radius Interaction Bound` entry and open the inspector
+    #### Настройка границы
+    После добавления границы её нужно настроить.\
+    Выберите элемент `Player Radius Interaction Bound` и откройте инспектор
 
-    You now got 2 options to configure
-    - **Radius**: The radius of the interaction bound. This is the distance from the player where the interaction will be cancelled.
-    - **zoom**: If the player's camera should zoom in when the player is nearby and zoom out when the player is walking away.
+    Доступно две настройки
+    - **Radius**: радиус границы, на котором взаимодействие будет отменяться.
+    - **zoom**: приближать ли камеру игрока, когда он рядом, и отдалять при уходе.
 
-    Now, your sequence should look a bit like this:
+    Теперь последовательность должна выглядеть примерно так:
     <Image img={require("../../../assets/interactions/interaction-bound-player-radius-interupting.png")} />
 
-    #### Result
-    Now, your interaction should look like this:
+    #### Результат
+    Теперь взаимодействие будет выглядеть так:
     <Player url={require("../../../assets/interactions/interaction-bound-interupting-result.webm").default} />
     </TabItem>
     <TabItem value="blocking" label="Blocking Mode">
     :::info[Guide]
-    In this guide, we will show an example of how to make a blocking interaction bound when the player walks away from a flower.
+    Здесь мы покажем пример блокирующей границы взаимодействия, когда игрок отходит от цветка.
     :::
     :::warning[Initial Setup]
-    This guide will build upon the [Interactions Guide](../../01-interactions/index.mdx) and requires you to have at least an
-    `On Interact With Block` entry in your editor.
+    Мы будем основываться на [руководстве по взаимодействиям](../../01-interactions/index.mdx) и требуем наличие элемента
+    `On Interact With Block` в редакторе.
     :::
 
-    #### Adding the Interaction Bound
-    To add an interaction bound, right-click on the `On Interact With Block` entry and select `Link with ...`, search for `Player Radius Interaction Bound` and add it to your sequence.
+    #### Добавление границы взаимодействия
+    Чтобы добавить границу, нажмите правой кнопкой на элементе `On Interact With Block` и выберите `Link with ...`, затем найдите `Player Radius Interaction Bound` и добавьте его в последовательность.
     <EntrySearch entryName='player_radius_interaction_bound' />
 
-    #### Making it a blocking interaction
-    What you now have done is created an interrupting interaction bound. To make it a blocking interaction bound, you need to set the priority of the `Spoken` entry to a higher priority than the `Player Radius Interaction Bound` entry.\
-    To do this, 
-    1. create a new sequence page. Name it something like `Blocking Bounds`.
-    2. Select the `Player Radius Interaction Bound` entry and hold it for a few seconds.
-    3. Drag it to the new page and drop it there.
-    4. Right-click on the page that has the `Spoken` in it.
-    5. **Select `Change Priority` and set it to a higher number than the `Player Radius Interaction Bound` entry.** \
-    For example, if the `Blocking Bounds` page has a priority of 0, set the page containing the `Spoken` entry to 1.
-    6. Now, your sequence should look like this:
+    #### Делаем границу блокирующей
+    Сейчас у вас создана прерываемая граница. Чтобы сделать её блокирующей, установите элементу `Spoken` приоритет выше, чем у `Player Radius Interaction Bound`.\
+    Для этого
+    1. создайте новую страницу последовательности, назовите её, например, `Blocking Bounds`.
+    2. Выберите `Player Radius Interaction Bound` и удерживайте несколько секунд.
+    3. Перетащите его на новую страницу.
+    4. Щёлкните правой кнопкой на странице со `Spoken`.
+    5. **Выберите `Change Priority` и задайте значение выше, чем у `Player Radius Interaction Bound`.** \
+    Например, если у страницы `Blocking Bounds` приоритет 0, странице со `Spoken` задайте 1.
+    6. Теперь последовательность должна выглядеть так:
     <Image img={require("../../../assets/interactions/interaction-bound-player-radius-blocking.png")} />
 
-    #### Result
-    Now, your interaction should look like this:
+    #### Результат
+    Теперь взаимодействие будет выглядеть так:
     <Player url={require("../../../assets/interactions/interaction-bound-blocking-result.webm").default} />
     </TabItem>
     <TabItem value="interuption-player" label="Interruption Mode (Entity Extension)">
     :::info[Guide]
-    In this guide, we will show an example of how to make an interrupting interaction bound when the player walks away from a NPC.
+    Здесь будет пример прерываемой границы взаимодействия, когда игрок отходит от NPC.
     :::
     :::warning[Entity Extension]
-    This guide requires you to already have created a NPC using the [Entity Extension](../../04-entity-extension/index.mdx)
+    Для выполнения примера требуется заранее создать NPC с помощью [Entity Extension](../../04-entity-extension/index.mdx)
     :::
 
     :::danger[SOON]
-    This guide is not yet available. Please check back later.
+    Это руководство ещё не готово. Загляните позже.
     :::
     </TabItem>
 </Tabs>

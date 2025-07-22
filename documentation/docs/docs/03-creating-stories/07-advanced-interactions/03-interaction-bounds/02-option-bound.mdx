@@ -9,102 +9,102 @@ import ActionButton from "@site/src/components/ActionButtons";
 import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 
-# Option Bound
+# Граница опции
 :::danger[Before Starting]
-This guide is made for advanced users. It is recommended to have a good understanding of how [Interactions](../../01-interactions/index.mdx) and [Interaction Bounds](./) work.
+Это руководство для опытных пользователей. Желательно хорошо понимать, как работают [Взаимодействия](../../01-interactions/index.mdx) и [Границы взаимодействия](./).
 :::
 :::info[Story]
-The story of this guide will be a waiter that is asking at wich table the player would like to sit.
+Сценарий этого гайда: официант спрашивает, за каким столиком игрок хотел бы сесть.
 :::
 
-In this guide, you will learn how to create an option that has a interaction bound applied to it. This means that while scrolling thrue the options the players bound location can change.
+В этом уроке вы узнаете, как создать вариант выбора с применённой к нему границей взаимодействия. Это позволит менять позицию игрока при пролистывании вариантов.
 
-## Creating the option
+## Создание опции
 :::info[Entity Extension]
-For this guide we will be connecting the option to an `On Entity Interact Event` from the [Entity Extension](../../04-entity-extension/index.mdx).
+Для этого примера мы свяжем опцию с `On Entity Interact Event` из [Entity Extension](../../04-entity-extension/index.mdx).
 :::
 
-### Creating the Option Dialogue
+### Создание диалога с опциями
 
-First, we'll create an option dialogue that will be shown when the player interacts with our waiter NPC:
+Сначала создадим диалог с вариантами, который будет показываться при взаимодействии игрока с официантом:
 
-1. Right-click on your `On Entity Interact Event` entry and select `+ Link with ...`
-2. Search for `Option` and add it to your sequence
+1. Щёлкните правой кнопкой по `On Entity Interact Event` и выберите `+ Link with ...`
+2. Найдите `Option` и добавьте его в последовательность
 
 <EntrySearch entryName="option" />
 
-## Configuring the option
-Now that we have added the option, we need to configure it. Select the `Option` entry and open the inspector.
+## Настройка опции
+Теперь, когда опция добавлена, её нужно настроить. Выберите элемент `Option` и откройте инспектор.
 
-Configure the dialogue text to be: `Welcome, at which table would you like to sit?` and the options:
+Задайте текст диалога `Welcome, at which table would you like to sit?` и варианты:
 - **Spruce Table**
 - **Birch Table**
 - **Dark Oak Table**
 - **Go Back**
 
-Learn how to configure the options in the [Options Guide](../../01-interactions/01-options.mdx).
+Подробнее о настройке вариантов можно узнать в [руководстве по опциям](../../01-interactions/01-options.mdx).
 
-## Adding the Interaction Bound
-To add an interaction bound, right-click on the `On Entity Interact Event` entry and select `Link with ...`, search for `Lock Interaction Bound` and add it to your sequence.
+## Добавление границы взаимодействия
+Чтобы добавить границу, щёлкните правой кнопкой по элементу `On Entity Interact Event` и выберите `Link with ...`, затем найдите `Lock Interaction Bound` и добавьте его в последовательность.
 <EntrySearch entryName='lock_interaction_bound' />
 
-## Configuring the Interaction Bound
-Select the `Lock Interaction Bound` entry and open the inspector.
+## Настройка границы взаимодействия
+Выберите `Lock Interaction Bound` и откройте инспектор.
 
-### Adding a Case Variable
-Enable the Target Position setting in the inspector and click on the <ActionButton button='dynamic-variable'/> icon, search for `Add Case Variable` and add it to a facts page.
+### Добавление переменной Case
+Активируйте параметр Target Position в инспекторе и нажмите <ActionButton button='dynamic-variable'/>. Найдите `Add Case Variable` и добавьте его на страницу facts.
 
 <EntrySearch entryName="case_variable" />
 
-### Configuring the Case Variable
-Select the `Case Variable` entry and open the inspector.
+### Настройка Case Variable
+Выберите `Case Variable` и откройте инспектор.
 
 :::info[Case Variable]
-The case variable stores different locations based on a supplied number:
+Переменная Case хранит разные позиции в зависимости от переданного числа:
 
-- This system is **1-based** (not 0-based)
-- Case 0 = default location (used when no matching case is found)
-- If no case matches, the default location is used
+- Система **начинается с 1** (не с 0)
+- Case 0 = позиция по умолчанию (если совпадение не найдено)
+- Если подходящий case не найден, используется позиция по умолчанию
 :::
 
-For our restaurant scenario:
-1. Set a **default location** using the <ActionButton button='capture'/> icon (shown when no case matches)
-2. Click the `+` icon in the cases field to add our four viewing positions:
+Для нашего примера с рестораном:
+1. Задайте **позицию по умолчанию** с помощью значка <ActionButton button='capture'/> (используется при отсутствии совпадения)
+2. Нажмите `+` в поле cases, чтобы добавить четыре позиции обзора:
    - **Case 1**: Spruce Table location
    - **Case 2**: Birch Table location
    - **Case 3**: Dark Oak Table location
    - **Case 4**: Go Back location (original position)
-3. Capture each position using the <ActionButton button='capture'/> icon
-4. Your `Case Variable` should look like this:
+3. Захватите каждую позицию с помощью значка <ActionButton button='capture'/>
+4. В итоге `Case Variable` будет выглядеть так:
 <Image img={require("../../../assets/interactions/option-bound-case-variables.png")} width="400" />
 
-### Adding a Interaction Context Variable
-Now when the player scrolls thrue the options nothing happens yet. To do this we need to add a `Interaction Context Variable` to the `Case Variable` inside the `Lock Interaction Bound` entry.
+### Добавление переменной контекста взаимодействия
+Сейчас при пролистывании вариантов ничего не происходит. Нужно добавить `Interaction Context Variable` в `Case Variable` внутри `Lock Interaction Bound`.
 
-To do this, click on the <ActionButton button='dynamic-variable'/> icon at the `Selection` field inside the `Case Variable` entry and search for `Interaction Context Variable`.
+Для этого нажмите <ActionButton button='dynamic-variable'/> в поле `Selection` у элемента `Case Variable` и найдите `Interaction Context Variable`.
 
 <EntrySearch entryName="interaction_context_variable" />
 
-### Configuring the Context Variable
+### Настройка переменной контекста
 
-This variable automatically provides the currently selected option index:
+Эта переменная автоматически предоставляет индекс выбранного варианта:
 
-1. Select the `Interaction Context Variable` entry
-2. In the inspector, click on `Select a Entry`
-3. Choose the `Option` entry we created earlier
-4. Your `Interaction Context Variable` should look like this:
+1. Выберите элемент `Interaction Context Variable`
+2. В инспекторе нажмите `Select a Entry`
+3. Выберите созданный ранее элемент `Option`
+4. `Interaction Context Variable` должна выглядеть так:
 <Image img={require("../../../assets/interactions/option-bound-target-position.png")} width="400" />
 
 :::info[About the Case Count]
-The image shows `Cases (0)` because I configured the cases globally in the facts page rather than locally in this specific entry.\
-You can configure variables via 2 ways:
-* globally (in the facts page for reuse across multiple entries) 
-* locally (within a specific entry). 
+На изображении показано `Cases (0)`, потому что я настроил случаи глобально на странице facts, а не локально в этом элементе.\
+Переменные можно настраивать двумя способами:
+* глобально (на странице facts для повторного использования)
+* локально (внутри конкретной записи).
 
-The functionality works the same either way - the system will use the appropriate position based on the selected option index.
+Функциональность одинаковая — система использует соответствующую позицию в зависимости от выбранного индекса.
 :::
-## Result
-Now your pages should look like this:
+## Результат
+Теперь ваши страницы должны выглядеть так:
 <Tabs Group defaultValue="sequence" groupId="page" queryString>
    <TabItem value="sequence" label="Sequence Page">
       <Image img={require("../../../assets/interactions/option-bound-sequence.png")} />
@@ -113,23 +113,23 @@ Now your pages should look like this:
       <Image img={require("../../../assets/interactions/option-bound-static.png")} />
    </TabItem>
 </Tabs>
-When players interact with the waiter NPC, they'll see the option menu. As they scroll through the different table options, their view will automatically shift to look at each table, creating an immersive way to make a choice.
+Когда игроки взаимодействуют с официантом, они видят меню выбора. При прокрутке разных столиков камера автоматически поворачивается к каждому из них, создавая эффект погружения.
 
 <Player url={require("../../../assets/interactions/option-bound-result.webm").default} />
 
 :::warning[Confirmation Key]
-While writing these docs a bug was found with the confirmation key. If your confirmation key is `SWAP_HANDS`(F) than while inside a interaction bound the dialogue will not continue. You need to press SPACE to do this!
+Во время написания этих документов был найден баг с клавишей подтверждения. Если у вас назначено `SWAP_HANDS` (F), то находясь внутри границы взаимодействия диалог не продолжится. Нажмите SPACE, чтобы продолжить!
 :::
 
-## How it Works
+## Как это работает
 
-The Option Bound system works through these key components:
+Механизм Option Bound работает через следующие ключевые компоненты:
 
-1. **Lock Interaction Bound** - Controls the player's position and view
-2. **Case Variable** - Stores different positions for each option
-3. **Interaction Context Variable** - Provides the current option index
-4. **Option Entry** - Provides the dialogue interface
+1. **Lock Interaction Bound** — управляет положением и обзором игрока
+2. **Case Variable** — хранит разные позиции для каждой опции
+3. **Interaction Context Variable** — предоставляет текущий индекс варианта
+4. **Option Entry** — отображает диалог
 
-When the player scrolls through options, the Interaction Context Variable updates with the new option index, which selects the corresponding position from the Case Variable, and the Lock Interaction Bound applies this position to the player.
+Когда игрок пролистывает варианты, переменная Interaction Context обновляется текущим индексом, выбирает соответствующую позицию из Case Variable, и Lock Interaction Bound применяет эту позицию к игроку.
 
-This creates a seamless experience where the player's view changes based on which option they're currently hovering over, allowing them to "look at" their choices in the game world.
+Это создаёт плавный эффект, когда взгляд игрока меняется в зависимости от наведённого варианта, позволяя ему "смотреть" на выбор в игровом мире.
