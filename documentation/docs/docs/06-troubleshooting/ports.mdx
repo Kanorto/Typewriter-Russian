@@ -2,30 +2,30 @@
 difficulty: Easy
 ---
 
-# Panel Loading Issues Troubleshooting Guide
+# Проблемы с загрузкой панели
 
-Are you encountering difficulties with the Typewriter plugin's panel not loading? This guide will help you troubleshoot and ensure the correct setup for optimal functionality.
+Если панель плагина Typewriter не загружается, это руководство поможет найти и устранить причину.
 
-## Assigning Ports Correctly
+## Корректное назначение портов
 
-If the panel isn't loading, a common issue could be the lack of assigned ports. The Typewriter plugin requires two open ports:
+Часто панель не открывается из‑за отсутствия свободных портов. Typewriter требует два открытых порта:
 
-1. One port for the panel to load.
-2. Another port for the websocket to communicate with the server.
+1. Один для загрузки панели.
+2. Второй для веб‑сокета, через который сервер обменивается данными.
 
 :::warning
-Hosting platforms like Aternos, which only offer a single port, are not compatible with the Typewriter plugin due to this requirement.
+Хостинги вроде Aternos, предоставляющие лишь один порт, не подходят для работы с Typewriter.
 :::
 
-## Using the Correct URL
+## Правильный адрес
 
-Ensure that you are using the correct URL to access the panel. The format should be either `ip:port` or, if you're using a subdomain, `url:port`. Using the correct URL is crucial for accessing the panel successfully.
+Проверьте, что для доступа к панели используется верный адрес.
+Его формат должен быть `ip:port`, а при использовании поддомена — `url:port`.
 
-## Avoiding Duplicate Ports in Config
+## Порт в конфигурации
 
-A common mistake is including the port in the `hostname` field of the `config.yml` file. 
-The hostname should only be the IP address or the domain name. It should not contain the port.
-Here's an example:
+Частая ошибка — указание порта в поле `hostname` файла `config.yml`.
+Там должен быть только IP‑адрес или доменное имя, без порта. Например:
 
 ```yaml title="config.yml"
 # ...
@@ -36,9 +36,10 @@ hostname: "127.0.0.1"       // Correct line
 # ...
 ```
 
-Removing the port from the hostname field can resolve issues related to the panel not loading.
+Удаление порта из `hostname` может решить проблему с загрузкой панели.
 
 ---
 
-For further assistance, please reach out to our community on [Discord](https://discord.gg/HtbKyuDDBw). We're here to help make your experience with the Typewriter plugin as smooth as possible!
+Если понадобиться помощь, заходите на наш [Discord](https://discord.gg/HtbKyuDDBw).
+Мы всегда готовы помочь и сделать использование Typewriter максимально простым.
 
