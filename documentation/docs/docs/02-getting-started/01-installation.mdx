@@ -5,110 +5,130 @@ difficulty: Easy
 import DownloadVersion from "@site/src/components/DownloadVersion";
 import Image from "@site/src/components/Image";
 
-# Installation Guide
+# Руководство по установке
 
-:::danger[Platform Compatibility]
-Typewriter only works on **paper** servers. It will not work on Spigot or Bukkit servers.
+:::danger[Совместимость платформы]
+Typewriter работает **только** на серверах **paper**. На Spigot или Bukkit он не запустится.
 :::
 
-## Installing the Typewriter Plugin
+## Установка плагина Typewriter
 
-Ensure a smooth installation process for the Typewriter plugin on your Paper Minecraft server by following these steps:
+Выполните следующие шаги, чтобы без проблем установить плагин Typewriter на сервер Paper:
 
-### Plugin Installation
+### Установка плагина
 
-1. Start by downloading <DownloadVersion />.
-2. Place the downloaded plugin into your server's `plugins` folder.
+1. Скачайте файл плагина <DownloadVersion />.
+2. Поместите его в папку `plugins` вашего сервера.
 
-### Handling Dependencies
+### Зависимости
 
-Typewriter relies on additional plugins that need to be installed for proper functioning.
+Для корректной работы Typewriter требуются дополнительные плагины.
 
-3. Download and add Typewriter's dependency, [PacketEvents](https://modrinth.com/plugin/packetevents/versions?l=paper), to your `plugins` directory.
+3. Скачайте зависимость Typewriter —
+   [PacketEvents](https://modrinth.com/plugin/packetevents/versions?l=paper) —
+   и положите её в папку `plugins`.
 
-4. Verify that you **don't** have the [InteractiveChat](https://www.spigotmc.org/resources/interactivechat-show-items-inventory-in-chat-custom-chat-keywords-bungee-velocity-support.75870/) or [CustomNamePlates](https://polymart.org/resource/customnameplates.2543) (Version 3.0.15 or lower) plugin installed, as it may cause conflicts with Typewriter.
+4. Убедитесь, что у вас **не** установлены плагины
+   [InteractiveChat](
+   https://www.spigotmc.org/resources/interactivechat-show-items-inventory-in-chat-custom-chat-keywords-
+   bungee-velocity-support.75870/)
+   или [CustomNamePlates](https://polymart.org/resource/customnameplates.2543)
+   (версии 3.0.15 и ниже) — они конфликтуют с Typewriter.
 
 ### Basic Extension
 
-The Typewriter offers various extensions for customization, but it's crucial to have the `BasicExtension` installed.
+Typewriter предлагает множество расширений для кастомизации, но `BasicExtension` необходимо установить обязательно.
 
-5. Download the latest `BasicExtension` from <DownloadVersion /> and add it to the `plugins/Typewriter/extensions` folder.
+5. Скачайте последнюю версию `BasicExtension` по ссылке <DownloadVersion /> и
+   поместите её в папку `plugins/Typewriter/extensions`.
 
-For a comprehensive list of available extensions, refer to the [extensions section](../../adapters).
+Полный список доступных расширений смотрите в разделе [расширения](../../adapters).
 
-6. With all components in place, restart your Minecraft server to complete the Typewriter installation.
+6. После установки всех компонентов перезапустите сервер Minecraft, чтобы завершить установку Typewriter.
 
-:::danger[Out of Sync]
-When updating the plugin, it's crucial to **always** install the corresponding extensions for that update. Failure to match the versions of the extension and plugin can result in the plugin not functioning correctly!
+:::danger[Несоответствие версий]
+При обновлении плагина **обязательно** ставьте соответствующие ему версии
+расширений. Несовпадение версий приведёт к некорректной работе!
 :::
 
-## Configuring the Web Panel
+## Настройка веб-панели
 
-:::caution[External Server Providers]
-Typewriter's web panel is **not compatible** with some external server providers, including **Minehut**, **Aternos**, and **Apex**. These providers typically don’t support multiple ports, though their support team may be able to open additional ports upon request.  
+:::caution[Хостинг-провайдеры]
+Веб-панель Typewriter **несовместима** с некоторыми сторонними хостингами,
+такими как **Minehut**, **Aternos** и **Apex**. Обычно они не поддерживают
+открытие дополнительных портов, хотя иногда это можно сделать через техподдержку.
 
-If this isn't possible, you can still use all other features in Typewriter or consider setting up a local server with Typewriter installed.  
+Если открыть порты не получается, используйте остальные функции Typewriter или разверните локальный сервер.
 
-For further assistance, feel free to reach out with questions on our [Discord](https://discord.gg/HtbKyuDDBw).
+При возникновении вопросов обращайтесь на наш [Discord](https://discord.gg/HtbKyuDDBw).
 :::
 
-:::info[Resource consumption]
-Please note that the web panel and web socket use precious resources on your server, and it is best to host the panel on your development server instead of on a production server.
+:::info[Потребление ресурсов]
+Учтите, что веб-панель и веб-сокет расходуют ресурсы сервера. Лучше размещать
+панель на тестовом сервере, а не на боевом.
 :::
 
-Now that we have installed the plugin, we need to configure the web panel.
+После установки плагина нужно настроить веб-панель.
 
-The web panel needs two ports to be open. These can be changed, but it does need at least two new ports to be open. The
-The default ports are `8080` and `9092`.
+Для работы панели требуются два открытых порта. Их можно изменить, но по умолчанию используются `8080` и `9092`.
 
-To enable the web panel, please follow these steps:
+Чтобы включить панель, выполните следующие действия:
 
-### Enabling the Web Panel
+### Включение веб-панели
 
-1. Open the `plugins/Typewriter/config.yml` file.
-2. Change the settings to the following:
+1. Откройте файл `plugins/Typewriter/config.yml`.
+2. Измените настройки следующим образом:
 
 ```yaml title="plugins/Typewriter/config.yml"
-# Whether the web panel and web sockets are enabled.
+# Включена ли веб-панель и веб-сокеты.
 enabled: true
-# The hostname of the server. CHANGE THIS to your server's IP.
+# Адрес сервера. ОБЯЗАТЕЛЬНО замените на свой IP.
 hostname: "127.0.0.1"
-# The panel uses web sockets to sync changes to the server and allows you to work with multiple people at the same time.
+# Панель использует веб-сокеты для синхронизации изменений и совместной работы.
 websocket:
-  # The port of the websocket server. Make sure this port is open.
+  # Порт сервера веб-сокетов. Убедитесь, что он открыт.
   port: 9092
-  # The authentication that is used. Leave unchanged if you don't know what you are doing.
+  # Используемый тип аутентификации. Не меняйте без необходимости.
   auth: "session"
 panel:
-  # The panel can be disabled while the sockets are still open. Only disable this if you know what you are doing.
-  # If the web sockets are disabled, then the panel will always be disabled.
+  # Панель можно выключить, оставив сокеты открытыми. Делайте это только при полном понимании.
+  # Если веб-сокеты отключены, панель тоже работать не будет.
   enabled: true
-  # The port of the web panel. Make sure this port is open.
+  # Порт веб-панели. Убедитесь, что он открыт.
   port: 8080
 ```
 
-3. Please use [portchecker](https://portchecker.co/) to check if your ports are open. If not, please open the ports yourself or contact your hosting company.
-4. Restart your server to complete the installation.
+3. Проверьте открытость портов с помощью [portchecker](https://portchecker.co/).
+   Если порты закрыты, откройте их сами или обратитесь к хостеру.
+4. Перезапустите сервер, чтобы завершить установку.
 
-## Connecting to the Web Panel
+## Подключение к веб-панели
 
-To connect to the web panel, follow these steps:
+Чтобы подключиться к панели, выполните следующие действия:
 
-1. Run the command `/typewriter connect` in-game. This will provide you with a link to access the web panel.
+1. В игре выполните команду `/typewriter connect`. Она выдаст ссылку для входа в панель.
 
 ![Connect-command](../assets/installation/connect-command.gif)
 
-2. Open the link in your preferred web browser.
+2. Откройте эту ссылку в любом удобном браузере.
 
-<Image img={require("../assets/installation/connect-book.png")} width={400} alt="Connect to the web panel in the book" />
+<Image
+  img={require("../assets/installation/connect-book.png")}
+  width={400}
+  alt="Connect to the web panel in the book"
+/>
 
-Once you've successfully connected, you can use the web panel to create and configure quests, NPC dialogues, and more. The panel also allows you to view and edit your server's existing player interactions.
+После подключения вы сможете создавать и настраивать квесты, диалоги NPC и
+многое другое. Панель также позволяет просматривать и редактировать уже созданные
+взаимодействия.
 
-## Troubleshooting
+## Устранение неполадок
 
-Encountering problems? Check out the [troubleshooting](../06-troubleshooting/index.mdx) page for solutions to common issues.
-If you still have issues, feel free to ask for help in the [Discord](https://discord.gg/HtbKyuDDBw).
+Если возникли проблемы, загляните на страницу [по устранению неполадок](../06-troubleshooting/index.mdx).
+При необходимости задайте вопрос на [Discord](https://discord.gg/HtbKyuDDBw).
 
-## What's Next?
+## Что дальше?
 
-Try creating your first interaction by following the [Interactions](../03-creating-stories/01-interactions/index.mdx) guide. If you have any questions, feel free to ask them in the [Discord](https://discord.gg/HtbKyuDDBw).
+Попробуйте создать своё первое взаимодействие, следуя руководству
+[Взаимодействия](../03-creating-stories/01-interactions/index.mdx). Если
+возникнут вопросы, задавайте их на [Discord](https://discord.gg/HtbKyuDDBw).
