@@ -6,25 +6,25 @@ import Player from "@site/src/components/Player";
 import Image from "@site/src/components/Image";
 import EntrySearch from "@site/src/components/EntrySearch";
 
-# Skippable Cinematics
-:::info[Before starting]
-It's best to first read [Cinematics](./index.mdx) before starting this tutorial.
+# Пропускаемые синематики
+:::info[Перед началом]
+Перед началом рекомендуется ознакомиться с разделом [«Синематики»](./index.mdx).
 :::
-In this tutorial, you will learn how to allow players to skip certain parts of your cinematics.
+В этом руководстве вы узнаете, как дать игрокам возможность пропускать отдельные части синематиков.
 
-## Adding a skippable cinematic
-Firstly click on the + icon in the top right corner of the panel and search for `Add Skippable Cinematic`. Add it to your page by clicking on the + icon.
+## Добавление пропускаемого синематика
+Нажмите на значок + в правом верхнем углу панели и найдите `Add Skippable Cinematic`. Добавьте его на страницу кликом по +.
 
 <EntrySearch entryName='skip_cinematic'/>
 
-### Configuring the skippable cinematic
-Inside the inspector of the skip cinematic you can choose between `SNEAK` or `SWAP_HANDS` at the confirmation key field. This key will be the key the player has to press to skip the cinematic. This guide will use the SNEAK key to skip the cinematic.
+### Настройка пропускаемого синематика
+В инспекторе пропускаемого синематика в поле confirmation key можно выбрать `SNEAK` или `SWAP_HANDS`. Нажатие этой клавиши позволит игроку пропустить синематик. В примере используется клавиша SNEAK.
 
-## Adding a skippable part
-Now inside the inspector of the skippable cinematic you can add a new segment by clicking on the `Add segment` text at the operations section. This will create a new segment\
-At the fields Start and End frame you can set the timings you want a player to be able to skip a cinematic. For this guide this will be 0 and 100.
+## Добавление пропускаемого участка
+В инспекторе пропускаемого синематика нажмите `Add segment` в разделе operations, чтобы создать новый сегмент.\
+В полях Start и End frame укажите интервал, в течение которого игрок может пропустить синематик. В примере это 0 и 100.
 
-## result
-Now you have a skippable cinematic that can be skipped by pressing the key you set in the confirmation key field.
+## Результат
+Теперь у вас есть синематик, который можно пропустить, нажав выбранную клавишу.
 
 <Player url={require("../../assets/cinematics/skip_cinematic_result.webm").default}/>

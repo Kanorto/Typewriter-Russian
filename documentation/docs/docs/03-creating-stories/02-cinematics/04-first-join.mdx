@@ -6,50 +6,50 @@ import Player from "@site/src/components/Player";
 import Image from "@site/src/components/Image";
 import EntrySearch from "@site/src/components/EntrySearch";
 
-# First Join Cinematic
+# Синематик при первом входе
 
-:::info[Before Starting]
-Before starting, it's recommended to read the following sections: [Interactions](../01-interactions/index.mdx), [Cinematics](./index.mdx), and [Facts](../03-facts/index.mdx). Ensure you have a sequence and a cinematic page created.
+:::info[Перед началом]
+Перед началом рекомендуется прочитать разделы [«Интеракции»](../01-interactions/index.mdx), [«Синематики»](./index.mdx) и [«Факты»](../03-facts/index.mdx). Убедитесь, что у вас уже есть страницы последовательности и синематика.
 :::
 
-In this tutorial, you'll learn how to create a cinematic that plays when a player joins the server for the first time.
+В этом руководстве вы узнаете, как создать синематик, который будет проигрываться при первом входе игрока на сервер.
 
-## Adding the Join Entry
-First, we need to add the `Add On Player Join` entry to our sequence. This can be done by clicking on the + icon in the top right corner of the panel and searching for `Add On Player Join`. Add it to your page by clicking on the + icon.
+## Добавление записи входа
+Сначала необходимо добавить запись `Add On Player Join` в последовательность. Нажмите на значок + в правом верхнем углу панели, найдите `Add On Player Join` и кликните по + для добавления на страницу.
 
 <EntrySearch entryName='on_player_join'/>
 
-## Waiting for Interaction
-:::danger[Early Start Cinematic]
-Before a player fully loads the server, it is possible for Typewriter to start the cinematic prematurely. This can occur if the player has a slow internet connection or a low-performance computer. In such cases, the player may join the server in the middle of the cinematic instead of at the beginning. To address this, it is recommended to add an option or a delay where the player needs to perform an action before the cinematic starts.
+## Ожидание взаимодействия
+:::danger[Преждевременный запуск]
+Пока игрок полностью не загрузился на сервер, Typewriter может запустить синематик раньше времени. Такое возможно при медленном соединении или слабом компьютере. В итоге игрок окажется на сервере в середине синематика, а не в его начале. Чтобы избежать этого, рекомендуется добавить опцию или задержку, требующую действия игрока перед стартом синематика.
 :::
-To add an option to your sequence, it's best to read the [Options](../01-interactions/01-options.mdx) page. For this tutorial, we will have a `New Option` with a `Start Cinematic` option.
+Чтобы добавить опцию в последовательность, ознакомьтесь с разделом [«Опции»](../01-interactions/01-options.mdx). В нашем примере будет создана `New Option` с пунктом `Start Cinematic`.
 
-### Configuring the Criteria
-:::warning[Option]
-If you are using the option from the [waiting for interaction](#waiting-for-interaction), you need to configure the following steps in the option and **NOT** inside the start cinematic.  
+### Настройка критерия
+:::warning[Опция]
+Если вы используете опцию из раздела [«Ожидание взаимодействия»](#waiting-for-interaction), следующие шаги нужно выполнять внутри опции, а **не** в самом синематике.
 :::
-Now we need to configure the criteria for the cinematic. This can be done by clicking on the `+` icon in the inspector next to the criteria field. Then, you can select the fact you want to use. For this tutorial, we will use a permanent fact called `First Join` with the group set to a player group.
+Теперь нужно настроить критерий для синематика. Нажмите `+` в инспекторе рядом с полем criteria и выберите факт, который хотите использовать. В примере это постоянный факт `First Join` с группой player group.
 
 <Image img={require("../../assets/cinematics/first-join-fact.png")} alt="first-join-fact" width={400} />
 
-Inside the criteria, set the operator to `==` and the value to `0`.
+Внутри критерия установите оператор `==` и значение `0`.
 
-### Configuring the Modifier
-You have configured the criteria, but now we need to modify the fact so that when you join again, the cinematic is not played. This can be done by clicking on the `+` icon in the inspector next to the modifier field. Then, you can select the fact you want to modify. For this tutorial, we will use the same fact as the criteria. Inside the modifier, set the operator to `=` and the value to `1`.
+### Настройка модификатора
+После настройки критерия нужно изменить факт, чтобы при повторном входе синематик не запускался. Нажмите `+` в инспекторе рядом с полем modifier и выберите факт для изменения. В примере используем тот же факт, что и в критерии. В модификаторе установите оператор `=` и значение `1`.
 
-Now your inspector should look like this:
+Теперь ваш инспектор должен выглядеть так:
 
 <Image img={require("../../assets/cinematics/add-cinematic-fields.png")} alt="add-cinematic-fields" width={400} />
 
-## Adding the `Add Cinematic` Entry
-Now we need to add the `Add Cinematic` entry to our sequence. This can be done by right-clicking on the `New On Player Join` entry and selecting `+ Link with ...`. Then, search for `Add Cinematic` and click on the + icon to add it to your sequence. Now your sequence page should look like this:
+## Добавление записи `Add Cinematic`
+Далее нужно добавить запись `Add Cinematic` в последовательность. Для этого щёлкните правой кнопкой мыши по `New On Player Join` и выберите `+ Link with ...`. Найдите `Add Cinematic` и нажмите +, чтобы добавить запись. Теперь страница последовательности должна выглядеть так:
 
 <Image img={require("../../assets/cinematics/add-cinematic.png")} alt="Add-Cinematic" width={400} />
 
-Inside the `New Cinematic`, select the cinematic you want to trigger via the inspector at the page field. For this tutorial, we will use the `Tutorial_Cin` cinematic.
+В `New Cinematic` в инспекторе выберите синематик, который хотите запустить. В примере это `Tutorial_Cin`.
 
-## Result
-Now, when a player joins the server for the first time, the cinematic will play. When the player joins again, the cinematic will not play.
+## Результат
+Теперь при первом входе игрока на сервер синематик будет проигран. При повторных входах он уже не запустится.
 
 <Player url={require("../../assets/cinematics/first-join-result.webm").default}/>
