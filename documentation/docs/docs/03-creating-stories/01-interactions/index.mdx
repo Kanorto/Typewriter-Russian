@@ -5,59 +5,59 @@ import Player from "@site/src/components/Player";
 import Image from "@site/src/components/Image";
 import EntrySearch from "@site/src/components/EntrySearch";
 
-# First Interaction
+# Первое взаимодействие
 
 :::info[Before starting]
-This guide assumes that you have already installed the [Basic Extension](../../02-getting-started/01-installation.mdx#basic-extension).
+Предполагается, что вы уже установили [Basic Extension](../../02-getting-started/01-installation.mdx#basic-extension).
 
-Also, make sure you have read the [layout](../../02-getting-started/02-layout.mdx) documentation and created a **sequence** page.
+Также убедитесь, что ознакомились с документом [Интерфейс](../../02-getting-started/02-layout.mdx) и создали страницу **sequence**.
 :::
 
-Let's create our first interaction. Our example interaction will have the following steps:
+Создадим наше первое взаимодействие. В примере оно состоит из следующих шагов:
 
-1. The player clicks on a flower.
-2. A chat dialogue opens.
+1. Игрок кликает по цветку.
+2. Открывается диалог в чате.
 
-If you need any assistance during the process, feel free to ask for help on our [Discord](https://discord.gg/HtbKyuDDBw).
+Если у вас возникнут трудности, задавайте вопросы в нашем [Discord](https://discord.gg/HtbKyuDDBw).
 
-## What are interactions?
+## Что такое взаимодействия?
 
-An interaction occurs when the player interacts with something and triggers an event. In this tutorial, the player clicking on the flower is the interaction, and the chat dialogue is the event that gets triggered.
+Взаимодействие происходит, когда игрок взаимодействует с чем‑то и тем самым запускает событие. В этом уроке кликом по цветку запускается диалог в чате.
 
-## Creating an interaction
+## Создание взаимодействия
 
-Let's get started by creating an entry. Click on the + icon in the top right corner of the panel and search for `on interact with block`. Add it to your page by clicking on the + icon.
+Нажмите на значок + в правом верхнем углу панели и найдите `on interact with block`. Добавьте эту запись на страницу, нажав на +.
 
 <EntrySearch entryName='on_interact_with_block'/>
 
-### Configuring the interaction
+### Настройка взаимодействия
 
-In the inspector, set the block to `Red Tulip` (1) and the name to `on flower click` (2)
+В инспекторе укажите блок `Red Tulip` (1) и имя `on flower click` (2).
 
 <Image img={require("../../assets/interactions/on_flower_click.png")} alt="Configuring an interact with flow entry" width={400} />
 
-## Creating an event
+## Создание события
 
-Now we need to create an event that gets triggered when the player clicks on the flower. Right-click on the `On Flower Click` entry and click on `+ link with ...` to open the search menu. Search for `Add Spoken` and add it to the page.
+Теперь создадим событие, которое будет запускаться при клике по цветку. Щёлкните правой кнопкой по записи `On Flower Click` и выберите `+ link with ...`. В появившемся меню найдите `Add Spoken` и добавьте его на страницу.
 
 <Player url={require("../../assets/interactions/add-spoken.webm").default} />
 
-### Configuring the event
+### Настройка события
 
-In the inspector, set the text to `Hello! I am a flower.` and set the duration to `1s`. 
+В инспекторе установите текст `Hello! I am a flower.` и длительность `1s`.
 
-### Configuring the speaker
+### Настройка говорящего
 
-Follow these steps to configure the speaker:
-1. Click on the text `Select a speaker` and in the search menu, click on `Add Simple Speaker`. 
-2. Select `Add static` and give that static page a name.
-3. Click on the simple speaker.
-4. Inside the inspector, set the Display Name to `A beautiful flower`.
+Выполните следующие действия:
+1. Нажмите на текст `Select a speaker` и в меню выберите `Add Simple Speaker`.
+2. Выберите `Add static` и задайте имя этой static‑странице.
+3. Откройте созданный simple speaker.
+4. В инспекторе установите Display Name `A beautiful flower`.
 
 <Player url={require("../../assets/interactions/simple-speaker.webm").default} />
 
-## Result
+## Результат
 
-You can now publish your pages, and in-game, it should look like this when clicking on the flower:
+Опубликуйте страницы, и в игре при клике по цветку вы увидите примерно следующее:
 
 <Player url={require("../../assets/interactions/final-result-default.webm").default} />

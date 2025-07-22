@@ -9,61 +9,60 @@ import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 import ActionButton from "@site/src/components/ActionButtons";
 
-
-# Giving items
+# Выдача предметов
 
 :::info[Before starting]
-It's best to first read [First Interaction](./index.mdx) before starting this tutorial.
+Перед началом лучше прочитать [Первое взаимодействие](./index.mdx).
 :::
 
-In this tutorial, you will learn how to give items in your interactions.
+В этом руководстве вы узнаете, как выдавать предметы во взаимодействиях.
 
-## Adding the give item
+## Добавление выдачи предмета
 
-To add a give item entry, follow these steps:
+Чтобы добавить запись выдачи предмета, выполните следующие шаги:
 
-1. Right-click on your entry and select `+ Link with ...`.
-2. Search for `Add give item` and click on the + icon to add it to your sequence.
+1. Щёлкните правой кнопкой по записи и выберите `+ Link with ...`.
+2. Найдите `Add give item` и нажмите на значок +, чтобы добавить её в последовательность.
 
 <EntrySearch entryName='give_item' />
 
-## Configuring the give item
+## Настройка выдачи предмета
 
-The giving item entry has two types of giving an item: A custom item and a Serialized item.
+Запись выдачи предмета имеет два режима: пользовательский предмет и сериализованный предмет.
 
-### Differences
+### Отличия
 <Tabs groupId="Differences" queryString>
   <TabItem value="custom-item" label="Custom Item" default>
-    The custom item allows you to customize almost all the aspects of the item.
+    Пользовательский предмет позволяет настроить почти все его параметры.
     :::warning[NBT]
-    A custom item can't contain NBT data.
+    Пользовательский предмет не может содержать NBT‑данные.
     :::
     </TabItem>
     <TabItem value="serialized-item" label="Serialized Item" default>
-    The serialized item gives you the ability to use the Item Capturer and capture the item from in-game.
+    Сериализованный предмет позволяет использовать Item Capturer и скопировать предмет прямо из игры.
     :::warning[Not Editable]
-    You can't edit a serialized item. Only the name can be changed.
+    Отредактировать сериализованный предмет нельзя, можно изменить только имя.
     :::
     </TabItem>
 </Tabs>
 
-### Using the Item Capturer(Serialized Item)
+### Использование Item Capturer (Serialized Item)
 
-The easy way is to use the item capture because it just copies the item that you are currently holding in-game to the panel. To do this, just click on <ActionButton button='capture'/> icon next to the `item` field.
+Проще всего воспользоваться захватом предмета, который просто копирует предмет в вашей руке в панель. Для этого нажмите на значок <ActionButton button='capture'/> рядом с полем `item`.
 
 <Player url={require("../../assets/interactions/item-capturer.webm").default} />
 
-### Configuring it yourself(Custom Item)
+### Настройка вручную (Custom Item)
 
-You can also configure the item yourself. Inside the item field select `Custom Item`. Press the + icon right next to the `Components(0)` text to add one of the following components:
-1. **Amount**: The amount of items given to the player.
-2. **Flag**: Specific options for the item.
-3. **Lore**: The lore of the item.
-4. **Material**: This is the item that the player will get.
-5. **Item Name**: This is the name of the item.
+Предмет можно настроить и вручную. В поле item выберите `Custom Item`. Нажмите значок + рядом с текстом `Components(0)`, чтобы добавить один из следующих компонентов:
+1. **Amount**: количество выдаваемых предметов.
+2. **Flag**: дополнительные опции предмета.
+3. **Lore**: описание предмета.
+4. **Material**: предмет, который получит игрок.
+5. **Item Name**: имя предмета.
 
-## Result
+## Результат
 
-After you configured your item, you can test your interaction by clicking the publish button, and then it should look something like this:
+После настройки предмета опубликуйте страницу и проверьте результат — он будет выглядеть примерно так:
 
 <Player url={require("../../assets/interactions/final-result-give-item.webm").default}/>
