@@ -10,115 +10,101 @@ import Image from "@site/src/components/Image";
 import Admonition from '@theme/Admonition';
 import ActionButton from '@site/src/components/ActionButtons'; 
 
-# Road Network
-:::info[Before starting]
-This guide assumes that you have already installed the Road Network Extension.\
-Also, make sure you have read the [layout](../../02-getting-started/02-layout.mdx) documentation and created a **static** page.
+# Дорожная сеть
+:::info[Перед началом]
+Это руководство предполагает, что расширение Road Network уже установлено.\
+Также убедитесь, что вы прочитали документацию по [макету](../../02-getting-started/02-layout.mdx) и создали **статическую** страницу.
 :::
 
-Road Networks are essential if you want to make NPCs move around your map or let the player follow a path. In this guide, we will show you how to create a road network and how to use it in your story.
+Дорожные сети необходимы, если вы хотите, чтобы NPC перемещались по карте или чтобы игрок мог следовать по пути. В этом руководстве мы покажем, как создать дорожную сеть и использовать её в вашей истории.
 
-## What is the road network
-The road network is an internal graph structure that Typewriter uses to efficiently calculate paths between two distant points.
+## Что такое дорожная сеть
+Дорожная сеть — это внутренняя графовая структура, которую Typewriter использует для эффективного расчёта маршрутов между двумя удалёнными точками.
 
-## Creating a road network
-First, we need to add a `Base Road Network` entry to our page. To add it to our page, click on the + icon in the top right corner of the panel and search for `base road network` then add it to your page by clicking on the + icon.
+## Создание дорожной сети
+Для начала нам нужно добавить на страницу запись `Base Road Network`. Чтобы добавить её, нажмите значок «+» в правом верхнем углу панели и введите `base road network`, затем нажмите «+», чтобы добавить запись на страницу.
 
 <EntrySearch entryName='base_road_network' />
 
-### Opening the content mode 
-In the `Base Road Network` entry in the inspector, click the <ActionButton button='capture'/> icon next to the ArtifactId field to open the content mode.
+### Открытие режима содержимого 
+В записи `Base Road Network` в инспекторе нажмите на значок <ActionButton button='capture'/> рядом с полем ArtifactId, чтобы открыть режим содержимого.
 
-### Adding a node
-Now that we have opened the content mode, we need to add a node. Nodes are points in a world that can be connected to each other using edges. To add a node, in your hotbar select the diamond and right-click it. This will open the node editor. To exit the menu of the node, click the end crystal.
-<Player url={require("../../assets/road-network/add-node.webm").default} />
+### Добавление узла
+Теперь, когда мы открыли режим содержимого, нам нужно добавить узел. Узлы — это точки в мире, которые можно соединять друг с другом рёбрами. Чтобы добавить узел, выберите в панели быстрого доступа алмаз и щёлкните им ПКМ. Это откроет редактор узлов. Чтобы выйти из меню узла, нажмите на эндер‑кристалл.
 
-### Creating the path
-To create a path, you will always need 2 nodes. So create 2 nodes and then select the redstone from your hotbar and right-click it. Now it should look a bit like this:
-<Player url={require("../../assets/road-network/path.webm").default} />
+### Создание пути
+Чтобы создать путь, вам всегда потребуется 2 узла. Создайте 2 узла, затем выберите красную пыль в панели быстрого доступа и щёлкните ей ПКМ. Теперь это должно выглядеть примерно так:
 
-Now you have created a path. You can expand a road network with unlimited nodes and create paths between them.
-:::tip[Node placement]
-It is recommended that you create nodes at the beginning and end of a road or path in your world. This is to save resources on loading and recalculating the edges.
+Теперь у вас есть путь. Вы можете расширять дорожную сеть неограниченным количеством узлов и создавать между ними пути.
+:::tip[Размещение узлов]
+Рекомендуется создавать узлы в начале и конце дороги или тропинки в вашем мире. Это позволяет экономить ресурсы на загрузке и пересчёте рёбер.
 :::
 
-### Editing a node
-When in the node editor, you have 4 options:
+### Редактирование узла
+Находясь в редакторе узлов, у вас есть 4 варианта:
 <Tabs groupId="node-editor" queryString>
   <TabItem value="change-radius" label="Change Radius" default>
-    #### Why is their radius?
-    When performing pathfinding from node A, all nodes within a **30-block** radius will be checked, for example, nodes B, C, D, E, F, and G. If it finds that the path to node C requires passing through nodes B radius, it will stop calculating the path to C. This is because the pathfinding avoids paths that need to skip nodes like B.
+    #### Зачем нужен радиус?
+При поиске пути от узла A будут проверяться все узлы в радиусе **30 блоков**, например узлы B, C, D, E, F и G. Если будет обнаружено, что путь к узлу C проходит через радиус узла B, расчёт пути к C прекратится. Это сделано потому, что алгоритм избегает путей, которые должны пропускать такие узлы, как B.
     
     <Image img={require("../../assets/road-network/radius.png")} alt="road-network radius explanation" />
-
-    #### How to use? 
-    To change the radius of a node, select the sculk sensor from your hotbar and right-click.
-    :::warning[Node click]
-    When right-clicking an item, you must not point your cursor at the node you are editing. This will open the content mode and not trigger the event.
-    :::
-
-    Then, with your scroll wheel, you can change the radius of a node.
-
+#### Как использовать?
+Чтобы изменить радиус узла, выберите сенсор скалка в панели быстрого доступа и щёлкните им ПКМ.
+    :::warning[Клик по узлу]
+При щелчке ПКМ предметом нельзя наводить курсор на редактируемый узел — это откроет режим содержимого и не вызовет событие.
+Затем с помощью колёсика мыши можно изменить радиус узла.
     <Player url={require("../../assets/road-network/radius.webm").default} />
   </TabItem>
-  <TabItem value="remove-edge" label="Remove Edge">
-    #### Why remove an edge?
-    Removing an edge can be useful when you want a path to skip a node or to make a path one-way only.
+  <TabItem value="remove-edge" label="Удалить связь">
+    #### Зачем удалять связь?
+Удаление связи может быть полезно, когда вам нужно, чтобы путь пропускал узел или был односторонним.
 
-    #### How to use?
-    To remove an edge, select the redstone from your hotbar and right-click it on the node you want to remove the edge from.
-    <Player url={require("../../assets/road-network/remove-edges.webm").default} />
+#### Как использовать?
+Чтобы удалить связь, выберите красную пыль в панели быстрого доступа и щёлкните ПКМ по узлу, с которого хотите удалить связь.
+<Player url={require("../../assets/road-network/remove-edges.webm").default} />
+:::warning[Пересчёт]
+После добавления или удаления отрицательного узла необходимо пересчитать связи с помощью красной пыли из панели быстрого доступа.
+:::
 
-    :::warning[Recalculate]
-    You must recalculate the edges using the redstone from your hotbar after adding or removing a negative node
-    :::
-
-
-    #### One way path
-    To make it one way only, you should, instead of just right-clicking, also hold shift. This will make the edge one-way only.
-
-    <Player url={require("../../assets/road-network/remove-edge.webm").default} />
+#### Односторонний путь
+Чтобы сделать путь односторонним, помимо простого клика ПКМ также удерживайте Shift. Это сделает связь односторонней.
+<Player url={require("../../assets/road-network/remove-edge.webm").default} />
   </TabItem>
   <TabItem value="fast-travel" label="Add Fast Travel Connection">
-    #### Why add a fast travel connection?
-    Fast travel connections are used to make a path teleport the NPC to another node instead of needing to walk to it.
+Быстрое перемещение используется, чтобы телепортировать NPC к другому узлу, не заставляя его идти пешком.
 
-    #### How to use?
-    To add a fast travel connection, select the emerald from your hotbar and right-click it on the node you want it to teleport to.
-
+Чтобы добавить быстрое перемещение, выберите изумруд в панели быстрого доступа и щёлкните ПКМ по узлу, к которому нужно телепортировать.
     <Player url={require("../../assets/road-network/fast-travel.webm").default} />
 
-    #### One way fast travel
-    To make it one way only, you should, instead of just right-clicking, also hold shift. This will make the fast travel one-way only.
+Чтобы сделать быстрое перемещение односторонним, помимо простого клика ПКМ также удерживайте Shift.
   </TabItem>
-  <TabItem value="remove-node" label="Remove Node">
-    To remove a node, select the redstone block from your hotbar and right-click it.
-    :::warning[Node click]
-    When right-clicking an item, you must not point your cursor at the node you are editing. This will open the content mode and not trigger the event.
+Чтобы удалить узел, выберите красный камень в панели быстрого доступа и щёлкните им ПКМ.
+    :::warning[Клик по узлу]
+При щелчке ПКМ предметом нельзя наводить курсор на редактируемый узел — это откроет режим содержимого и не вызовет событие.
     :::
   </TabItem>
 </Tabs>
 
-### Negative Nodes
-Sometimes you want pathfinding to not go via a certain path. For example, when you have a place where the pathfinding thinks it can jump down or up 1 block but shouldn't, you can add a negative node to prevent this.\
-Here is an example:
+### Отрицательные узлы
+Иногда нужно, чтобы поиск пути не шёл через определённый участок. Например, когда есть место, где алгоритм думает, что можно спрыгнуть или подняться на блок, но этого делать не нужно, можно добавить отрицательный узел, чтобы предотвратить это.
+Ниже приведён пример:
 <Tabs groupId="negative-nodes" queryString>
-  <TabItem value="with" label="With Negative Node" default>
+  <TabItem value="with" label="С отрицательным узлом" default>
     <Player url={require("../../assets/road-network/negative-nodes-preview.webm").default} />
   </TabItem>
-  <TabItem value="without" label="Without Negative Node">
+  <TabItem value="without" label="Без отрицательного узла">
      <Player url={require("../../assets/road-network/non-negative-nodes-example.webm").default} />
   </TabItem>
 </Tabs>
 
-#### How to add a negative node?
-You can add a negative node by selecting the netherite ingot from your hotbar in the content mode and right-clicking it.
-:::warning[Recalculate]
-You must recalculate the edges using the redstone from your hotbar after adding or removing a negative node
+#### Как добавить отрицательный узел?
+Вы можете добавить отрицательный узел, выбрав в режиме содержимого незеритовый слиток в панели быстрого доступа и щёлкнув им ПКМ.
+:::warning[Пересчёт]
+После добавления или удаления отрицательного узла необходимо пересчитать связи с помощью красной пыли из панели быстрого доступа.
 :::
 
-### Highlighting nodes
-When you have a lot of nodes, it can be hard to see which nodes are connected to each other. To make this easier, you can highlight the nodes that are connected to each other. To do this, select the glowstone from your hotbar and right-click it.
+### Подсветка узлов
+Когда узлов много, бывает сложно увидеть, какие из них соединены между собой. Чтобы облегчить это, можно подсветить связанные узлы. Для этого выберите светокамень в панели быстрого доступа и щёлкните им ПКМ.
 
-## Ending
-Now you have learned how to successfully set up the road network.
+## Завершение
+Теперь вы научились успешно настроить дорожную сеть.
