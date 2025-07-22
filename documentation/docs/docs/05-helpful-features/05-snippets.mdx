@@ -2,19 +2,19 @@
 title: Snippets
 difficulty: Normal
 ---
-# What are Snippets?
+# Что такое Snippet'ы?
 
-Snippets are small pieces of information that the extensions can use. Mostly related with how things are displayed to the users.
-Snippets allow you to customize all sorts of parts of different adpaters. For example, you can customize the way messages are displayed in the `Basic Extension`.
+Snippet'ы — это небольшие фрагменты информации, которые могут использовать расширения. В основном они относятся к тому, как что-либо отображается пользователям.
+Snippet'ы позволяют настраивать различные части адаптеров. Например, можно изменить способ отображения сообщений в `Basic Extension`.
 
-# How do I customize Snippets?
-Snippets can be customized by editing the `plugin/Typewriter/snippets.yml` file.
+# Как настроить Snippet'ы?
+Настройку можно выполнить, отредактировав файл `plugin/Typewriter/snippets.yml`.
 
 :::info[important]
-Note that Snippets are only written the first time they are used. So if you want to customize a snippet, you will need to trigger the entry that uses the snippet first.
+Обратите внимание, что Snippet'ы записываются только при первом использовании. Поэтому, если вы хотите изменить snippet, сначала вызовите запись, использующую его.
 :::
 
-So for the `Basic Extension`, after the first person reiceves a `MessageDialogueEntry`, the `snippets.yml` file will look like this:
+Для `Basic Extension` после того как первый игрок получит `MessageDialogueEntry`, файл `snippets.yml` будет выглядеть так:
 
 ```yaml title="plugin/Typewriter/snippets.yml"
 dialogue:
@@ -25,9 +25,9 @@ dialogue:
       <reset><white> <message>
 ```
 
-You can then edit this file to customize the snippet. For example, if you wanted to change the default color of the speaker's name, you could change the `<bold><speaker></bold>` to `<bold><red><speaker></red></bold>`.
+После этого вы можете отредактировать файл, чтобы изменить snippet. Например, чтобы поменять цвет имени говорящего по умолчанию, замените `<bold><speaker></bold>` на `<bold><red><speaker></red></bold>`.
 
-Yaml uses the `|` to indicate that the text is a multi-line string.
+В YAML символ `|` обозначает многострочную строку.
 
 ```yaml title="plugin/Typewriter/snippets.yml"
 dialogue:
@@ -38,4 +38,5 @@ dialogue:
       <gray> | <bold><speaker></bold><reset><gray> |
       <reset><white> <message>
 ```
-The `|2` indicates that the text is a multi-line string, and has `2` new-lines at the end of the string. If you don't want the new-lines, you can remove the `2` to make it `|`.
+`|2` указывает, что строка многострочная и содержит `2` перевода строки в конце. Если лишние строки не нужны, уберите `2`, оставив просто `|`.
+
