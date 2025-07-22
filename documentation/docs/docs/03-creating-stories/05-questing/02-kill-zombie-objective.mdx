@@ -9,19 +9,19 @@ import StateFlow from '@site/src/components/StateFlow';
 import { SplitLayout, Section } from '@site/src/components/SplitLayout';
 import EntryDisplay from "@site/src/components/EntryDisplay";
 
-# Kill Zombie Objective
+# Задание: убить зомби
 :::info[Before starting]
-It's best to first read [Questing](./index.mdx) before starting this tutorial.
+Перед началом рекомендуем прочитать раздел [Квесты](./index.mdx).
 :::
 :::warning[NPC]
-This tutorial requires you to already have created an NPC using the [Entity Extension](../04-entity-extension/index.mdx) guide.
+Этот урок требует, чтобы у вас уже был NPC, созданный по руководству [Entity Extension](../04-entity-extension/index.mdx).
 :::
 
 In this tutorial, you will learn how to create a quest where:
-- The player interacts with an NPC
-- The NPC gives the player a quest with the objective to kill 2 zombies.
-- The player completes the objective by killing 2 zombies.
-- The player returns to the NPC to complete the quest.
+- игрок взаимодействует с NPC
+- NPC выдаёт квест с целью убить 2 зомби
+- игрок выполняет цель, убивая 2 зомби
+- затем возвращается к NPC для завершения квеста
 
 <SplitLayout>
 <Section divider='left'>
@@ -102,26 +102,26 @@ This guide is split up into 2 sections.
 
 ## Manifest Section
 :::warning[Before Starting]
-Make sure you have the [Entity Extension](../04-entity-extension/index.mdx) guide completed before starting this tutorial.
-> In this guide we will be using the Oliver NPC as the quest giver.
+Перед началом убедитесь, что прошли руководство [Entity Extension](../04-entity-extension/index.mdx).
+> В этом примере квест выдаёт NPC по имени Oliver.
 
-Also make sure you have created a manifest page.
+Также убедитесь, что у вас есть страница manifest.
 :::
-> In this section, we will be setting up the quest and adding the objective to the manifest.
+> В этом разделе мы настроим квест и добавим цель в manifest.
 ### Creating the Quest
-Now inside the manifest page, click on the **+** button in the top right corner and search for `Quest`. Click on the **+** button to add it to your page.
+На странице manifest нажмите **+** и добавьте `Quest`.
 
 <EntrySearch entryName="quest" />
 
 #### Configuring the Quest Entry
-Now inside the quest entry set the following fields:
+Теперь в записи квеста установите следующие параметры:
 * **Display Name**: `ZombieQuest`
 * **Active Criteria**: `Zombie Quest Fact >= 1`
 * **Completed Criteria**: `Zombie Quest Fact = 2`\
 *For this guide I used a permanent fact*
 
 ### Adding the Objective
-Now inside the quest entry, click on the **+** button in the top right corner and search for `Completable Objective`. Click on the **+** button to add it to your page.
+Теперь в квесте нажмите **+** и выберите `Completable Objective`.
 
 <EntrySearch entryName="completable_objective" />
 
@@ -158,19 +158,19 @@ See [talk objective](./01-talk-objective.mdx) for more information on how to do 
 :::info[Before Starting]
 It is recommended to have a good understanding of [Interactions](../01-interactions/index.mdx) and [Facts](../03-facts/index.mdx) before starting this section.
 :::
-> In this section, we will be creating the sequence that gives the player the quest and makes the objective completable.
+> В этой части создадим последовательность, выдающую квест и позволяющую выполнить цель.
 
-### Interaction with Oliver
-Now we need to create the interaction with Oliver. This is where the player will receive the quest.
-Click on the **+** button in the top right corner and search for `Add Entity Interact Event`. Click on the **+** button to add it to your page.
+### Взаимодействие с Оливером
+Создадим взаимодействие с Оливером — здесь игрок получит квест.
+Нажмите **+** и выберите `Add Entity Interact Event`.
 
 <EntrySearch entryName="entity_interact_event" />
 
-Inside the entry set the Definition field to `Oliver` (or what you named your npc).
+Внутри укажите Definition `Oliver` (или своё имя NPC).
 
-### Adding dialogue to Oliver
-Now when you click on Oliver nothing happens. It would be nice to add some dialogue to the npc.
-> The following steps are optional, but recommended to make the quest more immersive.
+### Диалог с Оливером
+При нажатии на Оливера ничего не происходит. Добавим ему реплики.
+> Шаги ниже необязательны, но делают задание интереснее.
 1. Add a `New Option` to your sequence and set the following fields:
    * **Text**: `Could you help me with something?`
    * **Option 1**: `Yeah sure, whats up?`
@@ -180,23 +180,23 @@ Now when you click on Oliver nothing happens. It would be nice to add some dialo
    * **Duration**: `1s`
 3. Inside that spoken add a modifier: `Zombie Quest Fact = 1`
 
-### On kill increase fact
-Now we need to increase the fact when the player kills a zombie. To do this we need to add a `On Player Kill Entity` event to the sequence.
+### Увеличение счётчика при убийстве
+Чтобы увеличить факт при убийстве зомби, добавьте событие `On Player Kill Entity`.
 
 <EntrySearch entryName="on_player_kill_entity" />
 
 Inside the entry enable the Enity Type and set the Entity Type to `Zombie`.
 
-### Increasing the fact
+В событии включите Entity Type и выберите `Zombie`.
 Now we need to increase the fact when the player kills a zombie. To do this right click on the `On Player Kill Entity` and select `Link with ...` select the `Triggers | 1` and search for `Add Simple Action`.
 
-<EntrySearch entryName="simple_action" />
+Правой кнопкой по `On Player Kill Entity` выберите `Link with ...`, затем `Triggers | 1` и найдите `Add Simple Action`.
 
 Inside the entry set the following fields:
 * **Criteria**: `Zombie Quest Fact = 1`
 * **modifier**: `Zombies Killed Fact + 1`  
 
-This will increase the fact by 1 every time the player kills a zombie and only do this if the player has the quest.
+Это увеличит факт на 1 при каждом убийстве зомби, если квест активен.
 
 ### Sequence Result
 <EntryDisplay pages={[
@@ -206,6 +206,6 @@ This will increase the fact by 1 every time the player kills a zombie and only d
 ]} />
 
 ## Final Result
-Now when you click on Oliver you will get the dialogue and when you click on the first option you will get the quest. When you kill 2 zombies the objective will be completed.
+Теперь при нажатии на Оливера появится диалог и после выбора первого варианта начнётся квест. Убив 2 зомби, вы выполните цель.
 
 <Player url={require("../../assets/questing/kill-zombie-objective/kill-zombie-objective-result.webm").default} />
