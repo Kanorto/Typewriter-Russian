@@ -11,19 +11,19 @@ import { FeatureHighlights } from '@site/src/components/FeatureHighlights';
 import EntryDisplay from "@site/src/components/EntryDisplay";
 import EntryNodeInspector from "@site/src/components/EntryInspector";
 
-# Talk To NPC Objective
+# Задание: поговорить с NPC
 
 :::info[Before starting]
-It's best to first read [Questing](./index.mdx) before starting this tutorial.
+Перед началом обучения рекомендуется прочитать раздел [Квесты](./index.mdx).
 :::
 :::warning[NPC]
-This tutorial requires you to already have created an NPC using the [Entity Extension](../04-entity-extension/index.mdx) guide.
+Этот урок предполагает, что у вас уже есть NPC, созданный по руководству [Entity Extension](../04-entity-extension/index.mdx).
 :::
 
-In this tutorial, you will learn how to create a quest where:
-- The player interacts with an NPC
-- The NPC gives the player a quest
-- The player completes the quest by talking to a different NPC.
+В этом уроке мы создадим квест, где:
+- игрок общается с NPC
+- NPC выдаёт квест
+- квест завершается разговором с другим NPC.
 
 <SplitLayout>
 <Section divider='left'>
@@ -97,25 +97,25 @@ You must already have created 2 NPCs using the [Entity Extension](../04-entity-e
 > In this section, we will be creating the quest and adding the objective to it.
 
 ### Creating the Quest
-Now inside the manifest page, click on the **+** button in the top right corner and search for `Quest`. Click on the **+** button to add it to your page.
+Теперь на странице manifest нажмите **+** в правом верхнем углу и найдите `Quest`. Добавьте его на страницу.
 
 <EntrySearch entryName="quest" />
 
 #### Configuring the Quest Entry
-Now inside the quest entry set the following fields:
+Теперь в созданной записи задайте следующие поля:
 * **Display Name**: `TalkQuest`
 * **Active Criteria**: `Talk Quest Fact >= 1`
 * **Completed Criteria**: `Talk Quest Fact = 2`\
 *For this guide I used a permanent fact*
 
 ### Adding the Objective
-You now successfully created a quest entry. Now we need to add the objective to the quest.
-Click on the **+** button in the top right corner and search for `Add Interact Entity Objective`. Click on the **+** button to add it to your page.
+Запись квеста создана. Теперь добавим в неё цель.
+Нажмите **+** и выберите `Add Interact Entity Objective`, чтобы добавить его.
 
 <EntrySearch entryName="interact_entity_objective" />
 
 ###  Configuring the Objective Entry
-Inside the objective entry set the following fields:
+В параметрах цели укажите:
 * **Quest**: `TalkQuest`
 * **Criteria**: `Talk Quest Fact = 1`
 * **Entity**: `Old Man` (or what you named your second npc)
@@ -135,16 +135,16 @@ It is recommended to have a good understanding of [Interactions](../01-interacti
 > In this section, we will be creating the sequence that gives the player the quest and the other npc reacts to the quest.
 
 ### Interaction with the First NPC
-Now we need to create the interaction with the first npc. This is where the player will receive the quest.
-Click on the **+** button in the top right corner and search for `Add Entity Interact Event`. Click on the **+** button to add it to your page.
+Теперь создадим взаимодействие с первым NPC. Здесь игрок получит квест.
+Нажмите **+** в правом верхнем углу и выберите `Add Entity Interact Event`.
 
 <EntrySearch entryName="entity_interact_event" />
 
-Inside the entry set the Definition field to the first npc you created. In this case, we will be using `James`.
+Внутри укажите Definition первого созданного NPC, например `James`.
 
-### Adding dialogue to the First NPC
-Now when you click on the first npc nothing happens. Let's add some dialogue to the npc.
-> The following steps are optional, but recommended to make the quest more immersive.
+### Добавляем диалог первому NPC
+По умолчанию при нажатии на NPC ничего не происходит. Добавим реплики.
+> Следующие шаги необязательны, но помогут сделать квест интереснее.
 1. Add a `New Option` to your sequence and set the following fields:
    * **Text**: `Could you help me with something?`
    * **Option 1**: `Yeah sure, whats up?`
@@ -155,16 +155,16 @@ Now when you click on the first npc nothing happens. Let's add some dialogue to 
 3. Inside that spoken add a modifier: `Talk Quest Fact = 1`
 
 ### Interaction with the Second NPC
-Now you have created the first npc interaction. Now we need to create the second npc interaction. This is where the player will complete the quest.
-Add a new `Add Entity Interact Event` entry and set the Definition field to the second npc you created. In this case, we will be using `Old Man`.
+После настройки первого NPC создайте взаимодействие со вторым, через которое игрок завершит квест.
+Добавьте новую запись `Add Entity Interact Event` и укажите во втором NPC, например `Old Man`.
 <EntrySearch entryName="entity_interact_event" />
 
 ### Configuring the Second NPC Interaction
-Now we will make the interaction trigger a spoken. To do this right click on the `Entity Interact Event` and select `Link with ...` select the `Triggers | 1` and search for `Add Spoken`.
+Теперь сделаем так, чтобы взаимодействие запускало реплику. Кликните правой кнопкой по `Entity Interact Event`, выберите `Link with ...`, затем `Triggers | 1` и найдите `Add Spoken`.
 <EntrySearch entryName="spoken" />
 
-#### Configuring the spoken
-Inside the spoken entry set the following fields:
+#### Настройка реплики
+В этой записи задайте:
 * **Criteria**: `Talk Quest Fact = 1`
 * **Modifier**: `Talk Quest Fact = 2`
 * **Text**: `Thanks for going to me!`
@@ -178,19 +178,19 @@ Inside the spoken entry set the following fields:
 ]} />
 
 ## Result
-Now you have successfully created a quest where the player interacts with an npc and completes the quest by talking to a different npc.
+Вы успешно создали квест, где игрок разговаривает с одним NPC и завершает его у другого.
 
 <Player url={require("../../assets/questing/talk-objective/talk-objective-result.webm").default} />
 
-:::info[Quest Status Changes]
-In this video you can see that when the quest starts and ends it shows a title and some extra effects. To also add this read: **SOON**
+:::info[Изменения статуса квеста]
+В видео видно, как при старте и окончании квеста появляется заголовок и эффекты. Добавить это можно позже.
 :::
-:::info[Visualizing the Path]
-You can also visualize the path of the quest by using the `Interact Entity Objectives Path Stream` entry.
+:::info[Визуализация пути]
+Вы также можете показывать путь к NPC с помощью записи `Interact Entity Objectives Path Stream`.
 
 <EntrySearch entryName="interact_entity_objectives_path_stream" />
-
+Укажите поле `Road` на созданную дорожную сеть — и путь отобразится.
 Inside the entry set the `Road` field to a Road Network you created and it will visualize the path to the npc for you!
-
-Read more about road networks in the [Road Network Documentation](../06-road-network/index.mdx).
+Подробнее о дорожных сетях смотрите в [документации по сетям дорог](../06-road-network/index.mdx).
+:::
 :::

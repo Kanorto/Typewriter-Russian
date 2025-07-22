@@ -10,56 +10,53 @@ import { SplitLayout, Section } from '@site/src/components/SplitLayout';
 import EntryDisplay from "@site/src/components/EntryDisplay";
 import Deopasity from "@site/src/components/Deopasity";
 
-# Displaying Quests
+# Отображение квестов
 :::info[Before starting]
-It's best to first read [Questing](./index.mdx) for the theory and [Talk Objective](./01-talk-objective.mdx) for the practical!
+Сначала изучите раздел [Квесты](./index.mdx) и практический пример [Цель разговора](./01-talk-objective.mdx).
 :::
 
-In this tutorial, you will learn how to display quest information to players using Typewriter's quest tracking system and placeholders.
+В этом уроке вы узнаете, как показывать информацию о квестах с помощью системы отслеживания и плейсхолдеров Typewriter.
 
 
-## Understanding Quest Tracking
-Typewriter uses **facts** to track quest progress behind the scenes. These facts determine the state of your quests, but to actually **display** quest information to players, you need to track a specific quest.
+## Как работает отслеживание квестов
+Typewriter использует **факты** для отслеживания прогресса квеста. Эти данные определяют его состояние, но чтобы **показать** информацию игроку, нужно отслеживать конкретный квест.
 
 :::tip[The Big Picture]
 Think of quest tracking as a spotlight. While many quests might be active, tracking puts one quest in the spotlight for the player to focus on.
 :::
 
-### How Tracking Works
-When a quest is tracked, it becomes the "highlighted" quest that players see in their quest displays. This tracked quest becomes the focus for all display systems like scoreboards, sidebars, and custom UIs, keeping players focused on their current objective.
+### Как работает отслеживание
+Когда квест отслеживается, он становится "выбранным" и отображается во всех системах, таких как табло и боковые панели, удерживая внимание игрока на текущей цели.
 
 
-:::warning[One Quest at a Time]
-While many quests can be **active** simultaneously, only **one quest can be tracked at a time**. This keeps the player focused and prevents UI clutter.
+:::warning[Только один квест]
+Хотя квестов может быть активно несколько, отслеживаться может лишь **один**. Это помогает не захламлять интерфейс.
 :::
 
-## Setting Up Quest Tracking
+## Настройка отслеживания квестов
 
-### Automatic Tracking
-Typewriter automatically tracks quests in these situations:
+### Автоматическое отслеживание
+Typewriter автоматически начинает отслеживать квесты в следующих случаях:
 - When a quest becomes active
 - When an objective becomes active and has a higher priority than the currently tracked objectives
 
 This means in most cases, you won't need to manually manage quest tracking. Typewriter handles it intelligently!
-
+Обычно не требуется вручную управлять отслеживанием: Typewriter делает это сам.
 <Deopasity default={0.6} hover={1}>
 
-### Manual Tracking
-Sometimes you want full control over which quest is tracked.
-
-You can manually track a quest using the command:
+### Ручное отслеживание
+Иногда нужно самому выбрать, какой квест отслеживать.
+Вы можете вручную отслеживать квест командой:
 ```
 /tw quest track <quest_id>
 ```
-Or by using the **Track Quest Action** entry in your quest flow.
-
-<EntrySearch entryName="track_quest" />
+или с помощью записи **Track Quest Action** в вашей цепочке.
 
 </Deopasity>
 
-## Displaying Quest Information with Placeholders
+## Отображение информации о квесте через плейсхолдеры
 
-Now that you understand tracking, let's look at how to actually display quest information to players. Typewriter provides several placeholders that dynamically show information about the currently tracked quest.
+Теперь, когда вы знаете об отслеживании, рассмотрим способы вывода информации. Typewriter предоставляет несколько плейсхолдеров, показывающих данные о текущем квесте.
 
 ### Available Placeholders
 
@@ -69,25 +66,25 @@ Now that you understand tracking, let's look at how to actually display quest in
 | `%typewriter_tracked_objectives%` | A comma-separated list of the quest's active objectives | `Kill 2 Zombies, Return to Oliver` |
 | `%typewriter_tracked_objectives_locations%` | The locations of the tracked locatable objectives | `X: 100, Y: 64, Z: -200` |
 
-## Sidebar Display
+## Отображение в боковой панели
 
 If Typewriter is managing your sidebar, you can use the [Objective Lines Entry](../../../adapters/BasicAdapter/entries/quest/objective_lines.mdx) to display the objectives of the tracked quest.
 
 A possible setup for the sidebar could be:
 
 :::tip
-Notice how the objectives lines doesn't use the placeholder
+Обратите внимание, что строки целей здесь указаны без плейсхолдера
 :::
 
 <EntryDisplay pages={[
     require("../../assets/questing/display/quest_display_manifest.json"),
 ]} />
 
-## Quest Status Changes
+## Изменения статуса квеста
 
-You can also display visual feedback when quests become active or are completed. This creates satisfying feedback for players and helps them understand their progress.
+Вы можете показывать визуальные эффекты при активации и завершении квестов, чтобы игрок понимал свой прогресс.
 
-Common approaches include:
+Обычно используют:
 - **Title announcements** when a quest starts or completes
 - **Particle effects** to celebrate quest completion
 - **Sound effects** for important quest milestones
@@ -98,6 +95,6 @@ An example setup for this could be:
     require("../../assets/questing/display/quest_display_sequence.json"),
 ]} />
 
-:::tip[Keep It Balanced]
-While visual feedback is great, avoid overwhelming players with too many effects. A simple title or sound can be more impactful than elaborate animations.
+:::tip[Баланс]
+Не перегружайте игроков эффектами. Иногда достаточно простого титра или звука.
 :::
