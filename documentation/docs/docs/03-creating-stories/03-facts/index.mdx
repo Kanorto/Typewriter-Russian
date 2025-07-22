@@ -6,135 +6,135 @@ import Tabs from "@theme/Tabs";
 import TabItem from "@theme/TabItem";
 import Image from "@site/src/components/Image";
 
-# Facts
+# Факты
 
-Facts are essentially variables. They store information that can be modified by other entries. All facts are numbers and are treated as such.
+Факты — это, по сути, переменные. Они хранят информацию, которую могут изменять другие записи. Все факты являются числами и обрабатываются как таковые.
 
-The [`Basic Extension`](../../../adapters/BasicAdapter/BasicAdapter.mdx) encompasses numerous facts available for use. However, it's important to note that [`extensions`](../../../adapters/README.mdx) have the capability to further augment the array of available facts.
+В [`Basic Extension`](../../../adapters/BasicAdapter/BasicAdapter.mdx) содержится множество готовых фактов. Кроме того, [`расширения`](../../../adapters/README.mdx) могут расширять их список.
 
-## Why Use Facts?
+## Зачем нужны факты?
 
-Facts play a crucial role in dynamic content creation and system behavior customization. Here are some reasons to consider using facts:
+Факты играют важную роль в создании динамического контента и настройке поведения системы. Вот почему стоит применять факты:
 
-- **Dynamic Quests:** Track player progress in quests by using facts to store and modify completion status.
+- **Динамические задания:** отслеживайте прогресс игрока в квестах, используя факты для хранения и изменения статуса.
 
-- **Customization:** Personalize player experiences by utilizing facts to adjust in-game parameters, such as difficulty levels or character attributes.
+- **Персонализация:** настройте игровой процесс с помощью фактов, например уровень сложности или характеристики персонажа.
 
-- **Interactive Storytelling:** Enhance narrative elements by employing facts to remember player choices and actions, shaping the evolving story.
+- **Интерактивное повествование:** запоминайте выборы и действия игрока при помощи фактов, формируя развивающуюся историю.
 
-- **Achievement Systems:** Implement achievement tracking by using facts to record specific milestones and accomplishments.
+- **Система достижений:** фиксируйте ключевые этапы и успехи, используя факты.
 
-### Types of facts
+### Типы фактов
 
-Facts have two types: readable and writable.
+Факты бывают двух видов: читаемые и изменяемые.
 
-- **Readable Facts:** Used in the criteria of an entry. For example, checking if a player has a certain item in their inventory.
-- **Writable Facts:** Used in modifiers to modify the fact's value. For instance, updating a player's quest progression.
+- **Читаемые факты:** используются в критериях записи. Например, проверяется, есть ли у игрока определённый предмет в инвентаре.
+- **Изменяемые факты:** применяются в модификаторах для изменения значения факта, например обновления прогресса квеста.
 
 :::info
-Some facts are both readable and writable. For example, the [permanent fact](../../../adapters/BasicAdapter/entries/fact/permanent_fact) can be used in both criteria and modifiers.
-But some facts are only readable. For example, the [inventory item count fact](../../../adapters/BasicAdapter/entries/fact/inventory_item_count_fact) can only be used in criteria.
+Некоторые факты могут быть и читаемыми, и изменяемыми. Например, [permanent fact](../../../adapters/BasicAdapter/entries/fact/permanent_fact) можно использовать и в критериях, и в модификаторах.
+Но часть фактов только читаемая. К примеру, [inventory item count fact](../../../adapters/BasicAdapter/entries/fact/inventory_item_count_fact) применяется лишь в критериях.
 :::
 
-## Groups
+## Группы
 
-In a fact you can select a group. There are 3 types of groups:
+Для факта можно выбрать группу. Существует три типа групп:
 
-- **Global**: Sets a fact for all players.
-- **World**: Sets a fact for all players in a specific world.
-- **Player**: Sets a fact for a specific player.
+- **Global**: задаёт факт для всех игроков.
+- **World**: задаёт факт для всех игроков в выбранном мире.
+- **Player**: задаёт факт для конкретного игрока.
 
-## Fields
+## Поля
 
-In some entries, there are fields that influence the way facts are handled.
+В некоторых записях есть поля, которые определяют обработку фактов.
 
-<Image img={require("../../assets/facts/criteria_and_modifier.png")} alt="Criteria and modifiers fields" width={400} />
+<Image img={require("../../assets/facts/criteria_and_modifier.png")} alt="Поля критериев и модификаторов" width={400} />
 
-### Criteria
+### Критерии
 
-Criteria is the condition for an entry, e.g., `if fact = 10 then...`. It controls whether an entry will occur.
+Критерий — это условие для записи, например `если факт = 10, то...`. От него зависит, будет ли выполнена запись.
 
-<Image img={require("../../assets/facts/criteria.png")} alt="Criteria field" width={400} />
+<Image img={require("../../assets/facts/criteria.png")} alt="Поле критериев" width={400} />
 
-When using criteria, follow these steps:
+При работе с критериями выполните следующие шаги:
 
-1. Select the fact to check.
-2. Choose the operator.
-3. Insert the value for the operator to check.
+1. Выберите факт, который нужно проверить.
+2. Выберите оператор.
+3. Укажите значение для проверки.
 
-### Modifiers
+### Модификаторы
 
-Modifiers, as the name suggests, modify a fact.
+Модификаторы, как видно из названия, изменяют факт.
 
-<Image img={require("../../assets/facts/modifier.png")} alt="Modifier field" width={400} />
+<Image img={require("../../assets/facts/modifier.png")} alt="Поле модификатора" width={400} />
 
-When using modifiers, follow these steps:
+При работе с модификаторами выполните следующие шаги:
 
-1. Select the fact to modify.
-2. Select the operator. You can change the value directly (=) or add to it (+).
-3. Insert the value for the operator to modify.
+1. Выберите факт, который нужно изменить.
+2. Выберите оператор. Можно установить значение (=) или прибавить к текущему (+).
+3. Укажите значение для изменения.
 
 :::warning
-Modifiers only run when the entry is executed.
-If the entry has criteria and **one of the criteria** is `false`, then the entry won't be executed, and the fact won't be modified.
+Модификаторы выполняются только при срабатывании записи.
+Если у записи есть критерии и **хотя бы один** из них `false`, запись не выполнится и факт не изменится.
 :::
 
-## Tutorial
+## Учебник
 
-To get you started with facts, we will use a permanent fact to track progression in a quest.
+Чтобы начать работу с фактами, мы создадим постоянный факт для отслеживания прогресса в квесте.
 
-1. Create a new page and select it as `static`. Give it the name `Playerprogress`
-2. Click on the + icon and select `Add Permanent Fact`. Rename it to `Playerprogress` and give it a nice comment.
-    <Image img={require("../../assets/facts/static-page.png")} alt="Static page button" />
-3. Select the player group.
-4. On the sequence page, click on an action.
-   - Set a **Criteria:** Check if `Playerprogress` == 0.
-   - Set a **Modifier:** If criteria are met, update `Playerprogress` to 1.
-5. Create additional actions to represent different quest stages, modifying `Playerprogress` accordingly.
+1. Создайте новую страницу и выберите тип `static`. Назовите её `Playerprogress`
+2. Нажмите значок `+` и выберите `Add Permanent Fact`. Переименуйте факт в `Playerprogress` и добавьте комментарий.
+    <Image img={require("../../assets/facts/static-page.png")} alt='Кнопка "Static page"' />
+3. Выберите группу Player.
+4. На странице последовательности нажмите на действие.
+   - Задайте **критерий:** проверьте, равен ли `Playerprogress` 0.
+   - Задайте **модификатор:** если критерий выполнен, установите `Playerprogress` в 1.
+5. Создайте дополнительные действия для разных этапов квеста, изменяя `Playerprogress` соответственно.
 
-## Examples
+## Примеры
 
-There are many possibilities with the fact's system. Here are some examples:
+Система фактов открывает множество возможностей. Ниже несколько примеров:
 
 <Tabs groupId="example" queryString>
-   <TabItem value="Gathering Items Quest" label="Gathering Items Quest" default>
-      **Objective:** A player talks to an NPC and needs to gather items.
+   <TabItem value="Gathering Items Quest" label="Сбор предметов" default>
+      **Задача:** игрок разговаривает с NPC и должен собрать предметы.
 
-      **Fact Used:**
-      - **Readable Fact:** [Inventory Item Count](../../../adapters/BasicAdapter/entries/fact/inventory_item_count_fact)
+      **Используемый факт:**
+      - **Читаемый факт:** [Inventory Item Count](../../../adapters/BasicAdapter/entries/fact/inventory_item_count_fact)
 
-      **Scenario:**
-      1. The player talks to the NPC.
-      2. Check the criteria using the Inventory Item Count Fact to verify if the player has the required items.
-
-   </TabItem>
-   <TabItem value="Progression Tracking" label="Progression Tracking">
-      **Objective:** Track a player's progression through different quest stages.
-
-      **Fact Used:**
-      - **Writable Fact:** [Permanent Fact](../../../adapters/BasicAdapter/entries/fact/permanent_fact)
-
-      **Scenario:**
-      1. The player talks to an NPC (progression set to 1).
-      2. Completes a specific action (progression set to 2).
-      3. Finishes the quest (progression set to 3).
+      **Сценарий:**
+      1. Игрок разговаривает с NPC.
+      2. Проверьте критерий с помощью факта количества предметов в инвентаре, чтобы убедиться, что у игрока есть нужные предметы.
 
    </TabItem>
-   <TabItem value="Balance check" label="Balance check">
-      **Objective:** See if a player has enough money to buy an item.
+   <TabItem value="Progression Tracking" label="Отслеживание прогресса">
+      **Задача:** отслеживать продвижение игрока по этапам квеста.
 
-      **Fact Used:**
-      - **Readable Fact:** [Balance Fact](../../../adapters/VaultAdapter/entries/fact/balance_fact.mdx)
+      **Используемый факт:**
+      - **Изменяемый факт:** [Permanent Fact](../../../adapters/BasicAdapter/entries/fact/permanent_fact)
 
-      **Scenario:**
-      1. The player talks to an NPC.
-      2. Check the criteria using the balance fact to see if the player has enough balance.
-      3. If the player has enough balance, they can buy the item.
-      4. If the player doesn't have enough balance, show a message to the player.
+      **Сценарий:**
+      1. Игрок разговаривает с NPC (прогресс = 1).
+      2. Выполняет определённое действие (прогресс = 2).
+      3. Завершает квест (прогресс = 3).
+
+   </TabItem>
+   <TabItem value="Balance check" label="Проверка баланса">
+      **Задача:** проверить, достаточно ли у игрока денег для покупки предмета.
+
+      **Используемый факт:**
+      - **Читаемый факт:** [Balance Fact](../../../adapters/VaultAdapter/entries/fact/balance_fact.mdx)
+
+      **Сценарий:**
+      1. Игрок разговаривает с NPC.
+      2. Проверяем критерий с использованием факта баланса, чтобы узнать, достаточно ли средств.
+      3. Если средств достаточно, игрок может купить предмет.
+      4. Если денег не хватает, показать игроку сообщение.
 
    </TabItem>
 </Tabs>
 
 :::tip
-To see all the available facts, check out the [Extensions section](../../../adapters/README.mdx).
+Чтобы узнать о всех доступных фактах, загляните в раздел [Extensions](../../../adapters/README.mdx).
 :::
