@@ -6,58 +6,58 @@ import Player from "@site/src/components/Player";
 import Image from "@site/src/components/Image";
 import EntrySearch from "@site/src/components/EntrySearch";
 
-# Cinematics
+# Кинематика
 
 :::info[Before starting]
-This guide assumes that you have already installed the [Basic Extension](../../02-getting-started/01-installation.mdx#basic-extension).\
-Also, make sure you have read the [layout](../../02-getting-started/02-layout.mdx) documentation and created a **cinematic** page.
+Это руководство предполагает, что у вас уже установлен [Basic Extension](../../02-getting-started/01-installation.mdx#basic-extension).\
+Также убедитесь, что вы прочитали документацию по [layout](../../02-getting-started/02-layout.mdx) и создали страницу **cinematic**.
 :::
 
-In this tutorial, you will learn how to create and view cinematics in your interactions!
+В этом уроке вы научитесь создавать и просматривать кинематики в своих интеракциях!
 
-## What are cinematics?
-Cinematics are timed sequences of actions that can be played in your interactions. They are used to create cutscenes or other timed events.
+## Что такое кинематики?
+Кинематики — это последовательности действий по таймеру, которые можно воспроизводить в ваших интеракциях. Их используют для создания кат‑сцен и других событий с таймингом.
 
-## Creating a cinematic
-Let's get started by creating a simple camera cinematic.
+## Создание кинематики
+Начнём с простого варианта — камеры.
 
-### Adding a camera cinematic
-Firstly click on the + icon in the top right corner of the panel and search for `Add Camera Cinematic`. Add it to your page by clicking on the + icon.
+### Добавление камеры
+Нажмите значок + в правом верхнем углу панели и найдите `Add Camera Cinematic`. Добавьте его на страницу, кликнув по значку +.
 
 <EntrySearch entryName='cinematic'/>
 
-### Creating a segment
-Now we need to add a segment to our track. You can do this by clicking on the `New Camera Cinematic` entry in your page and by operations clicking on `Add Segment`(1).
+### Создание сегмента
+Теперь нам нужно добавить сегмент в дорожку. Для этого выберите `New Camera Cinematic` на странице и в операциях нажмите `Add Segment`(1).
 
 <Image img={require("../../assets/cinematics/segments.png")} alt="Adding a camera cinematic segment" width={400} />
 
-After you create the segment, you can click on it (2). This opens the inspector of the segment.
+После создания сегмента нажмите на него (2), чтобы открыть инспектор.
 
-### Modifying the camera segment
-In a camera cinematic segment, you have a path. Each path contains a list of locations in a world of your server. When multiple locations are specified on a path, the player will move between them. If only one is specified, the player will stay stationary.
-To create a path, click on the + icon in the inspector at `path(0)`.
+### Изменение сегмента камеры
+В сегменте камеры есть путь. Он состоит из списка точек в мире сервера. Если указано несколько точек, игрок будет двигаться между ними, иначе останется на месте.
+Чтобы создать путь, нажмите значок + в инспекторе у `path(0)`.
 
-To set a location in a path, you have 2 options: using the content mode or configuring it yourself.
-#### Using the content mode 
-The content mode allows you to get the player's current location and fill in the fields for you.
+Чтобы задать точку пути, есть два варианта: использовать режим контента или настроить вручную.
+#### Использование режима контента
+В режиме контента текущие координаты игрока автоматически подставляются в поля.
 <Player url={require("../../assets/cinematics/content-mode.webm").default} />
 
-#### Configuring it yourself
-You can also configure the paths yourself. This can be done by opening the `Path #1` field. In there, you can configure the location of the path. These are:
-* **World**: The world where the cinematic happens.
-* **X**: The x coordinate of the location.
-* **Y**: The y coordinate of the location.
-* **Z**: The z coordinate of the location.
-* **Pitch**: The pitch of the camera.
-* **Yaw**: The yaw of the camera.
+#### Ручная настройка
+Можно задать точки вручную, открыв поле `Path #1`. Здесь настраиваются:
+* **World** — мир, где происходит кинематика;
+* **X** — координата X;
+* **Y** — координата Y;
+* **Z** — координата Z;
+* **Pitch** — наклон камеры;
+* **Yaw** — поворот камеры.
 
-**Duration**: The duration of the location to the next location in ticks. If not specified, the duration will be calculated based on the left-over duration.\
-For example, if you have a segment of *300* frames with 3 locations, and the 2nd location has a **duration** of *200* frames, the duration from the 1st to the 2nd location will be *100* ticks, and from the 2nd to the 3rd location, *200* ticks.
+**Duration** — продолжительность от текущей точки до следующей в тиках. Если её не указать, длительность рассчитывается из оставшихся кадров.\
+Например, если сегмент длится *300* кадров и содержит 3 точки, а для второй задана **duration** *200* кадров, то от первой до второй будет *100* тиков, а от второй до третьей — *200*.
 
-Repeat this process to make more locations in the path.
+Повторите шаги, чтобы добавить больше точек пути.
 
-## result
-For the result we are going to use the example for the duration. You can easily view your cinematic by running the command:\
- `/tw cinematic start (page name)` or adding an `Add cinematic` to a sequence page.
+## Результат
+В качестве примера воспользуемся вариантами с длительностью. Посмотреть кинематику можно командой:\
+ `/tw cinematic start (page name)` или добавив `Add cinematic` на страницу последовательности.
 
 <Player url={require("../../assets/cinematics/final-camera-cinematic.webm").default} />
