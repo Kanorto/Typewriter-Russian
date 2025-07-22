@@ -1,128 +1,87 @@
-# Contributor Covenant Code of Conduct
+# Кодекс поведения участников
 
-## Our Pledge
+## Наше обязательство
 
-We as members, contributors, and leaders pledge to make participation in our
-community a harassment-free experience for everyone, regardless of age, body
-size, visible or invisible disability, ethnicity, sex characteristics, gender
-identity and expression, level of experience, education, socio-economic status,
-nationality, personal appearance, race, religion, or sexual identity
-and orientation.
+Мы, как участники, вкладчики и руководители, обязуемся обеспечить участие в нашем
+сообществе без домогательств для всех, независимо от возраста, телосложения, видимых или невидимых ограниченных возможностей, этнической принадлежности, половых признаков, гендерной идентичности и выражения, уровня опыта, образования, социально-экономического статуса, национальности, внешности, расы, религии или сексуальной идентичности и ориентации.
 
-We pledge to act and interact in ways that contribute to an open, welcoming,
-diverse, inclusive, and healthy community.
+Мы обещаем действовать и взаимодействовать таким образом, чтобы поддерживать открытое, дружелюбное, разнообразное, инклюзивное и здоровое сообщество.
 
-## Our Standards
+## Наши стандарты
 
-Examples of behavior that contributes to a positive environment for our
-community include:
+Примеры поведения, которое способствует созданию позитивной атмосферы в нашем
+сообществе:
 
-* Demonstrating empathy and kindness toward other people
-* Being respectful of differing opinions, viewpoints, and experiences
-* Giving and gracefully accepting constructive feedback
-* Accepting responsibility and apologizing to those affected by our mistakes,
-  and learning from the experience
-* Focusing on what is best not just for us as individuals, but for the
-  overall community
+* Проявление сочувствия и доброжелательности к другим
+* Уважение к отличающимся мнениям, взглядам и опыту
+* Предоставление и с благодарностью принятие конструктивной критики
+* Принятие ответственности и извинения перед теми, кого затронули наши ошибки,
+  а также извлечение уроков из произошедшего
+* Сосредоточенность не только на собственных интересах, но и на благе всего сообщества
 
-Examples of unacceptable behavior include:
+Примеры неприемлемого поведения:
 
-* The use of sexualized language or imagery, and sexual attention or
-  advances of any kind
-* Trolling, insulting or derogatory comments, and personal or political attacks
-* Public or private harassment
-* Publishing others' private information, such as a physical or email
-  address, without their explicit permission
-* Other conduct which could reasonably be considered inappropriate in a
-  professional setting
+* Использование сексуализированной лексики или изображений, а также любое сексуальное внимание или домогательства
+* Троллинг, оскорбительные или унизительные комментарии, личные или политические атаки
+* Публичные или личные преследования
+* Публикация чужой личной информации, например физического или электронного адреса, без явного разрешения
+* Другое поведение, которое можно считать неприемлемым в профессиональной среде
 
-## Enforcement Responsibilities
+## Ответственность за соблюдение
 
-Community leaders are responsible for clarifying and enforcing our standards of
-acceptable behavior and will take appropriate and fair corrective action in
-response to any behavior that they deem inappropriate, threatening, offensive,
-or harmful.
+Лидеры сообщества отвечают за разъяснение и соблюдение наших стандартов приемлемого поведения и будут принимать соответствующие и справедливые меры в ответ на поведение, которое они сочтут неподобающим, угрожающим, оскорбительным или вредным.
 
-Community leaders have the right and responsibility to remove, edit, or reject
-comments, commits, code, wiki edits, issues, and other contributions that are
-not aligned to this Code of Conduct, and will communicate reasons for moderation
-decisions when appropriate.
+Лидеры сообщества имеют право и обязанность удалять, редактировать или отклонять комментарии, коммиты, код, правки вики, обращения и другие вклады, не соответствующие данному Кодексу поведения, и при необходимости объяснять причины таких действий.
 
-## Scope
+## Сфера действия
 
-This Code of Conduct applies within all community spaces, and also applies when
-an individual is officially representing the community in public spaces.
-Examples of representing our community include using an official e-mail address,
-posting via an official social media account, or acting as an appointed
-representative at an online or offline event.
+Этот Кодекс поведения действует во всех пространствах сообщества, а также когда человек официально представляет сообщество в публичных местах.
+Примеры представления сообщества: использование официального электронного адреса, публикации от имени официального аккаунта в соцсетях или участие в мероприятии в качестве назначенного представителя.
 
-## Enforcement
+## Обеспечение соблюдения
 
-Instances of abusive, harassing, or otherwise unacceptable behavior may be
-reported to the community leaders responsible for enforcement at
-[Discord](https://discord.gg/gs5QYhfv9x).
-All complaints will be reviewed and investigated promptly and fairly.
+Случаи оскорбительного, преследующего или иного неприемлемого поведения можно сообщить лидерам сообщества, отвечающим за соблюдение правил, по адресу [Discord](https://discord.gg/gs5QYhfv9x).
+Все жалобы будут оперативно и беспристрастно рассмотрены и расследованы.
 
-All community leaders are obligated to respect the privacy and security of the
-reporter of any incident.
+Все лидеры сообщества обязаны уважать конфиденциальность и безопасность лиц, сообщивших о происшествии.
 
-## Enforcement Guidelines
+## Руководство по мерам
 
-Community leaders will follow these Community Impact Guidelines in determining
-the consequences for any action they deem in violation of this Code of Conduct:
+Лидеры сообщества будут руководствоваться следующими Руководящими принципами оценки воздействия на сообщество при определении последствий за любое действие, нарушающее данный Кодекс:
 
-### 1. Correction
+### 1. Исправление
 
-**Community Impact**: Use of inappropriate language or other behavior deemed
-unprofessional or unwelcome in the community.
+**Влияние на сообщество**: использование неподобающей лексики или иное поведение, признанное непрофессиональным или нежелательным в сообществе.
 
-**Consequence**: A private, written warning from community leaders, providing
-clarity around the nature of the violation and an explanation of why the
-behavior was inappropriate. A public apology may be requested.
+**Последствие**: личное письменное предупреждение от лидеров сообщества с разъяснением характера нарушения и объяснением, почему такое поведение неприемлемо. Может быть запрошено публичное извинение.
 
-### 2. Warning
+### 2. Предупреждение
 
-**Community Impact**: A violation through a single incident or series
-of actions.
+**Влияние на сообщество**: нарушение, совершённое единичным инцидентом или серией действий.
 
-**Consequence**: A warning with consequences for continued behavior. No
-interaction with the people involved, including unsolicited interaction with
-those enforcing the Code of Conduct, for a specified period of time. This
-includes avoiding interactions in community spaces as well as external channels
-like social media. Violating these terms may lead to a temporary or
-permanent ban.
+**Последствие**: предупреждение с указанием последствий при продолжении такого поведения. Запрещено взаимодействовать с участниками, в том числе с лицами, обеспечивающими соблюдение Кодекса, в течение определённого времени. Это также включает отказ от общения в сообществах и внешних каналах, таких как соцсети. Нарушение этих условий может привести к временной или постоянной блокировке.
 
-### 3. Temporary Ban
+### 3. Временная блокировка
 
-**Community Impact**: A serious violation of community standards, including
-sustained inappropriate behavior.
+**Влияние на сообщество**: серьёзное нарушение стандартов сообщества, включая продолжительное неподобающее поведение.
 
-**Consequence**: A temporary ban from any sort of interaction or public
-communication with the community for a specified period of time. No public or
-private interaction with the people involved, including unsolicited interaction
-with those enforcing the Code of Conduct, is allowed during this period.
-Violating these terms may lead to a permanent ban.
+**Последствие**: временная блокировка любых форм общения с сообществом на определённый срок. Запрещено публичное и частное взаимодействие с участниками, включая непрошенные обращения к лицам, следящим за соблюдением Кодекса. Нарушение условий может привести к постоянной блокировке.
 
-### 4. Permanent Ban
+### 4. Постоянная блокировка
 
-**Community Impact**: Demonstrating a pattern of violation of community
-standards, including sustained inappropriate behavior,  harassment of an
-individual, or aggression toward or disparagement of classes of individuals.
+**Влияние на сообщество**: неоднократное нарушение стандартов сообщества, включая продолжительное неподобающее поведение, преследование отдельных лиц или агрессию в отношении групп людей.
 
-**Consequence**: A permanent ban from any sort of public interaction within
-the community.
+**Последствие**: постоянная блокировка любой публичной активности в сообществе.
 
-## Attribution
+## Благодарности
 
-This Code of Conduct is adapted from the [Contributor Covenant][homepage],
-version 2.0, available at
+Этот Кодекс поведения основан на [Contributor Covenant][homepage], версия 2.0, доступен по адресу
 https://www.contributor-covenant.org/version/2/0/code_of_conduct.html.
 
-Community Impact Guidelines were inspired by [Mozilla's code of conduct
-enforcement ladder](https://github.com/mozilla/diversity).
+Руководство по оценке воздействия на сообщество вдохновлено [лестницей мер из кодекса поведения Mozilla](https://github.com/mozilla/diversity).
 
 [homepage]: https://www.contributor-covenant.org
 
-For answers to common questions about this code of conduct, see the FAQ at
-https://www.contributor-covenant.org/faq. Translations are available at
+Ответы на часто задаваемые вопросы о данном кодексе поведения см. в разделе FAQ по адресу
+https://www.contributor-covenant.org/faq. Переводы доступны на
 https://www.contributor-covenant.org/translations.

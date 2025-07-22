@@ -1,19 +1,19 @@
-# Website
+# Сайт
 
-This website is built using [Docusaurus 2](https://docusaurus.io/), a modern static website generator.
+Этот сайт создан с помощью [Docusaurus 2](https://docusaurus.io/), современного генератора статических сайтов.
 
-## Installation
+## Установка
 
 `$ npm ci`
 
-### Local Development
+### Локальная разработка
 
 `$ npm start`
 
-### Build for Production
+### Сборка для продакшена
 
 `$ npm run build`
 
 `$ npm run serve`
 
-This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+Эта команда запускает локальный сервер разработки и открывает окно браузера. Большинство изменений отображаются сразу без перезапуска сервера.
