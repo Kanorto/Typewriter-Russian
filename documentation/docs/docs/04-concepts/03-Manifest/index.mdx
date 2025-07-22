@@ -4,43 +4,43 @@ difficulty: Easy
 
 import RiveBoard from "@site/src/components/RiveBoard";
 
-# Manifest Entries
+# Записи манифеста
 
-In Typewriter, there are multiple types of entries, the main one `Sequence Entries`, these are `Dialogue Entries`, `Event Entries`, and `Action Entries`. The next major type of entry is the `Manifest Entry`. While `Sequence Entries` are imperative, `Manifest Entries` are declarative. Let's explore the difference between these two approaches and how they work.
+В Typewriter есть несколько типов записей, основной — это `Sequence Entries`, включающие `Dialogue Entries`, `Event Entries` и `Action Entries`. Следующим важным типом является `Manifest Entry`. Если `Sequence Entries` императивны, то `Manifest Entries` декларативны. Давайте разберём разницу между этими подходами и то, как они работают.
 
-## Then vs When
+## Then против When
 
 ### Then (`Sequence entries`)
-The "Then" logic, represented by `Sequence Entries`, works like a set of instructions: "Do this, then do that, then do this other thing." It's like a sideways directed graph, where each step leads to the next in a linear fashion.
+Логика «Then», представленная `Sequence Entries`, работает как набор инструкций: «Сделай это, затем сделай то, затем ещё что-то». Это похоже на ориентированный граф, где каждое действие ведёт к следующему по линейной цепочке.
 
-Example: Let's consider a Minecraft boss bar that needs to be displayed and updated as a player moves through a village.
+Пример: допустим, нужно показать и обновлять полоску босса, пока игрок перемещается по деревне.
 
-With the "Then" logic, you would:
-1. Show the boss bar when the player enters the village
-2. Update the boss bar text to "Welcome to the village!"
-3. Update the boss bar text to "Check out the blacksmith!" when the player enters the blacksmith's building
-4. Update the boss bar text back to "Welcome to the village!" when the player exits the blacksmith's building
-5. Hide the boss bar when the player leaves the village
+Используя логику «Then», вы бы:
+1. Показывали полоску босса, когда игрок входит в деревню
+2. Обновляли текст полоски на «Добро пожаловать в деревню!»
+3. Обновляли текст на «Загляни к кузнецу!», когда игрок входит в кузницу
+4. Возвращали текст полоски к «Добро пожаловать в деревню!», когда игрок выходит из кузницы
+5. Скрывали полоску босса, когда игрок покидает деревню
 
 ### When (`Manifest Entries`)
-The "When" logic, represented by `Manifest Entries`, defines conditions and specifies what should happen when those conditions are met. It's like a tree structure, where different branches represent different conditions and their corresponding actions.
+Логика «When», представленная `Manifest Entries`, определяет условия и описывает, что должно произойти при их выполнении. Это похоже на древовидную структуру, где разные ветви представляют условия и соответствующие им действия.
 
-Example: Using the same village scenario, with the "When" logic, you would:
- - When the player is in the village
-   - Show the boss bar with the text "Welcome to the village!"
- - When the player is in the blacksmith's building
-   - Update the boss bar text to "Check out the blacksmith!"
+Пример: В той же ситуации с деревней, используя логику «When», вы бы:
+ - Когда игрок находится в деревне
+   - Показывали полоску босса с текстом «Добро пожаловать в деревню!»
+ - Когда игрок находится в кузнице
+   - Обновляли текст полоски на «Загляни к кузнецу!»
 
-In this approach, you define the conditions under which an action should occur, rather than specifying a linear sequence of steps.
-Suppose you wanted to add more buildings to the village and have different messages displayed when the player enters each building. 
-Doing this with the "Then" logic would incur a lot of repetitive entries, while with the "When" logic, you can simply add more conditions and actions and Typewriter will figure out what to display based on the player's location.
+В таком подходе вы определяете условия, при которых выполняется действие, а не описываете последовательность шагов.
+Предположим, вы хотите добавить больше зданий в деревню и показывать различные сообщения при входе игрока в каждое здание.
+При использовании логики «Then» это приведёт к множеству повторяющихся записей, в то время как в логике «When» можно просто добавить новые условия и действия, и Typewriter сам определит, что отображать в зависимости от местоположения игрока.
 
-## Interactive Visualization
+## Интерактивная визуализация
 
-To better understand the difference between "Then" and "When" logic, let's explore an interactive visualization.
-Try moving your cursor over the village and blacksmith's building to see how the boss bar changes based on the player's location.
+Чтобы лучше понять разницу между логикой «Then» и «When», давайте посмотрим интерактивную визуализацию.
+Попробуйте навести курсор на деревню и здание кузницы, чтобы увидеть, как меняется полоска босса в зависимости от положения игрока.
 
-On the bottom you will see how the "Then" and "When" logic is represented in a directed graph and a tree structure respectively.
+Внизу будет показано, как логика «Then» и «When» представлены соответственно в виде ориентированного графа и древовидной структуры.
 
 <RiveBoard stateMachines="State Machine" src={require('./assets/manifest.riv').default} 
  />

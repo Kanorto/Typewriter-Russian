@@ -4,60 +4,60 @@ difficulty: Easy
 
 import RiveBoard from "@site/src/components/RiveBoard";
 
-# Audience Entries
+# Записи аудитории
 
-Audience entries are a specific type of [Manifest Entry](./Manifest) that is used to conditionally display content to a group of players.
-Players can be in the audience of an entry.
-In other words, the content of an audience entry will be displayed to the players in its audience.
+Записи аудитории — это особый вид [Manifest Entry](./Manifest), который используется для условного отображения контента группе игроков.
+Игроки могут входить в аудиторию записи.
+Иными словами, содержимое записи аудитории будет показано игрокам, находящимся в её аудитории.
 
-There are two types of Audience entries:
+Существует два типа записей аудитории:
 
 ### Audience Display Entry
 
-The Audience Display is meant to display content to a group of players.
-It can be things like: applying a potion effect, or showing a boss bar.
+Audience Display предназначен для отображения контента группе игроков.
+Это могут быть, например, наложение эффекта зелья или показ полоски босса.
 
 ### Audience Filter Entry
 
-Audience Filter entries have a list of children that can include both Audience entries and Audience Filter entries.
-They are used as a way to filter the audience of an Audience Display Entry.
+Audience Filter имеет список дочерних записей, в который могут входить как Audience entries, так и другие Audience Filter.
+Они используются для фильтрации аудитории Audience Display Entry.
 
-Audience Filters can both:
+Audience Filters могут:
 
-#### Filter Players
-Filter the audience of itself and its children. Like the `CriteriaAudience`, where players are allowed to be in the audience if they meet the criteria.
+#### Отфильтровывать игроков
+Фильтровать свою аудиторию и аудиторию своих детей. Например, `CriteriaAudience` допускает игроков, соответствующих определённым критериям.
 
-#### Display Content
-Display content just like a normal Audience Display Entry, but use the children for the content on what to display. Like the `Sidebar` does with `Lines` entries.
+#### Отображать контент
+Отображать контент так же, как обычный Audience Display Entry, но используя детей для определения того, что именно показать. Как это делает `Sidebar` с записями `Lines`.
 
 
-# How does filtering work?
+# Как работает фильтрация?
 
-When a player joins the server, they are added to all of the root audience entries.
-A root audience entry is an entry that has no parents.
+Когда игрок заходит на сервер, его добавляют во все корневые записи аудитории.
+Корневая запись — это запись без родителей.
 
-## Root Entries
+## Корневые записи
 
 <RiveBoard stateMachines="State Machine 1" artboard="Roots" aspectRatio={500/300} src={require('./assets/audience_entries.riv').default} />
 
 
-As seen above, any entry that has no parents is a root entry.
-The filters can still allow or deny players from being in their own audience. 
-However, if nothing is linked, they don't influence the audience of other entries.
+Как видно выше, любой элемент без родителей является корневым.
+Фильтры всё равно могут разрешать или запрещать игрокам находиться в их собственной аудитории.
+Однако если ничего не связано, они не влияют на аудиторию других записей.
 
-## Chaining
+## Цепочки фильтров
 
-We can chain filter together to create a more complex filter.
-Now the player is in the `Display` only if both conditions are met.
+Мы можем соединять фильтры, чтобы создавать более сложные условия.
+Теперь игрок попадает в `Display` только если выполнены оба условия.
 
 <RiveBoard stateMachines="State Machine 1" artboard="Chained" aspectRatio={500/350} src={require('./assets/audience_entries.riv').default} />
 
-Try turning on and off some conditions and see what happens.
+Попробуйте включать и выключать некоторые условия и посмотрите, что произойдёт.
 
-## Multiple Parents
+## Несколько родителей
 
-When an entry has multiple parents, the player is in the audience of the entry if any of the parents allow the player to be in the audience.
+Когда у записи несколько родителей, игрок находится в её аудитории, если хотя бы один из родителей допускает его.
 
 <RiveBoard stateMachines="State Machine 1" artboard="Or" aspectRatio={500/310} src={require('./assets/audience_entries.riv').default} />
 
-Try turning on and off some conditions and see what happens.
+Попробуйте включать и выключать некоторые условия и посмотрите, что произойдёт.
